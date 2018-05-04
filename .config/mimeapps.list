@@ -1,0 +1,36 @@
+[Default Applications]
+x-scheme-handler/http=userapp-Firefox-C399FZ.desktop
+x-scheme-handler/https=userapp-Firefox-C399FZ.desktop
+x-scheme-handler/ftp=userapp-Firefox-C399FZ.desktop
+x-scheme-handler/chrome=userapp-Firefox-C399FZ.desktop
+text/html=userapp-Firefox-C399FZ.desktop
+application/x-extension-htm=userapp-Firefox-C399FZ.desktop
+application/x-extension-html=userapp-Firefox-C399FZ.desktop
+application/x-extension-shtml=userapp-Firefox-C399FZ.desktop
+application/xhtml+xml=userapp-Firefox-C399FZ.desktop
+application/x-extension-xhtml=userapp-Firefox-C399FZ.desktop
+application/x-extension-xht=userapp-Firefox-C399FZ.desktop
+image/jpeg=feh.desktop;
+inode/directory=Thunar.desktop;
+application/x-ica=wfica.desktop
+application/vnd.citrix.receiver.configure=new_store.desktop
+
+[Added Associations]
+x-scheme-handler/http=userapp-Firefox-N1A1EZ.desktop;userapp-Firefox-C399FZ.desktop;
+x-scheme-handler/https=userapp-Firefox-N1A1EZ.desktop;userapp-Firefox-C399FZ.desktop;
+x-scheme-handler/ftp=userapp-Firefox-N1A1EZ.desktop;userapp-Firefox-C399FZ.desktop;
+x-scheme-handler/chrome=userapp-Firefox-N1A1EZ.desktop;userapp-Firefox-C399FZ.desktop;
+text/html=userapp-Firefox-N1A1EZ.desktop;userapp-Firefox-C399FZ.desktop;
+application/x-extension-htm=userapp-Firefox-N1A1EZ.desktop;userapp-Firefox-C399FZ.desktop;
+application/x-extension-html=userapp-Firefox-N1A1EZ.desktop;userapp-Firefox-C399FZ.desktop;
+application/x-extension-shtml=userapp-Firefox-N1A1EZ.desktop;userapp-Firefox-C399FZ.desktop;
+application/xhtml+xml=userapp-Firefox-N1A1EZ.desktop;userapp-Firefox-C399FZ.desktop;
+application/x-extension-xhtml=userapp-Firefox-N1A1EZ.desktop;userapp-Firefox-C399FZ.desktop;
+application/x-extension-xht=userapp-Firefox-N1A1EZ.desktop;userapp-Firefox-C399FZ.desktop;
+image/jpeg=feh.desktop;
+inode/directory=Thunar.desktop;
+image/png=feh.desktop;
+application/pdf=evince.desktop;
+image/svg+xml=inkscape.desktop;
+text/x-python=libreoffice-writer.desktop;
+application/x-shellscript=libreoffice-writer.desktop;

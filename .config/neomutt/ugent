@@ -1,0 +1,18 @@
+# vim: filetype=neomuttrc
+## my UGent 
+
+set mbox_type = Maildir
+# receive options
+set spoolfile 	= "+UGent/INBOX"
+set mbox 	= "+UGent/Archive"
+set postponed 	= "+UGent/Drafts"
+set trash 	= "+UGent/Trash"
+
+unmailboxes *
+mailboxes +UGent/INBOX +UGent/Drafts +UGent/Trash "+UGent/Verzonden\ items" +UGent/Archive
+
+# send options
+set sendmail 	= "/usr/bin/msmtp -a UGent"
+set from 	= "Klaas.Gunst@UGent.be"
+set realname 	= "Klaas Gunst"
+set record 	= "+UGent/Verzonden\ items"

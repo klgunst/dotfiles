@@ -1,0 +1,45 @@
+# vim: filetype=neomuttrc
+set realname="Klaas Gunst"
+set editor="/bin/vim"
+
+# sidebar
+set sidebar_visible = yes
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+
+set send_charset="us-ascii:utf-8"
+# How often to check for new mail (time in seconds).
+set mail_check = 120
+
+set folder = "~/Mail"
+set spoolfile = "+UGent/INBOX"
+
+# speedup folder switch
+set  sleep_time = 0
+
+source "~/.config/neomutt/ugent"
+folder-hook UGent/* 'source ~/.config/neomutt/ugent'
+folder-hook Hotmail/* 'source ~/.config/neomutt/hotmail'
+
+## sort/threading
+set sort 	= threads
+set sort_aux 	= reverse-last-date-received
+set sort_re
+
+#signature for end of mail
+#set signature="~/.config/neomutt/signature"
+
+# for your viewing pleasure
+set mailcap_path ="~/.config/neomutt/mailcap"
+auto_view text/html
+alternative_order text/plain text/html
+
+## shortcuts
+source ~/.config/neomutt/shortcutmuttrc
+## colors
+source ~/.config/neomutt/colorsmuttrc
+
+## aliases
+set alias_file = "~/.config/neomutt/aliases"
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file

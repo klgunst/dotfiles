@@ -1,0 +1,34 @@
+[general]
+ui = ttyui
+pythonfile = ~/.config/offlineimap/offlineimap.py
+accounts= UGent, Hotmail
+
+[Account UGent]
+localrepository = UGent-Local
+remoterepository = UGent-Remote
+
+[Repository UGent-Local]
+type = Maildir
+localfolders = ~/Mail/UGent
+
+[Repository UGent-Remote]
+type = IMAP
+remotehost = owa.ugent.be
+remoteuser = klaas.gunst@ugent.be
+remotepasseval = get_ugentpass()
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Account Hotmail]
+localrepository = Hotmail-Local
+remoterepository = Hotmail-Remote
+
+[Repository Hotmail-Local]
+type = Maildir
+localfolders = ~/Mail/Hotmail
+
+[Repository Hotmail-Remote]
+type = IMAP
+remotehost = imap-mail.outlook.com
+remoteuser = klaasgunst@hotmail.com
+remotepasseval = get_hotmailpass()
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt

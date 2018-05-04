@@ -1,0 +1,187 @@
+# vim: filetype=i3
+
+# #---Basic Definitions---# #
+#Needed for i3-gaps
+for_window [class="^.*"] border pixel 3
+gaps outer 0
+gaps inner 8
+font inconsolata:mono 10
+set $mod Mod1
+set $term --no-startup-id st 
+set $browser firefox
+focus_follows_mouse no
+
+#Try to load extra screens initializes polybar and wallpaper 
+exec_always --no-startup-id ~/.config/scripts/initscreen.sh
+
+#Unclutter makes the mouse invisible after a brief period
+exec --no-startup-id unclutter
+#for remapping capslock to mod key
+exec --no-startup-id xmodmap ~/.xmodmap
+
+#RUNIT
+set $shutdown ~/.config/scripts/shutdown.sh
+
+# #---Audio and Music Definitions---# #
+set $inc --no-startup-id amixer sset Master 2%+
+set $biginc --no-startup-id amixer sset Master 5%+
+set $dec --no-startup-id amixer sset Master 2%-
+set $bigdec --no-startup-id amixer sset Master 5%-
+set $mute --no-startup-id amixer sset Master toggle
+
+# #---Basic Bindings---# #
+bindsym $mod+Return 		exec $term tmux
+bindsym $mod+Shift+Return 		exec $term
+
+bindsym $mod+Shift+space 	floating toggle
+bindsym $mod+space		focus mode_toggle
+#
+#bindsym $mod+Escape		workspace prev
+#bindsym $mod+Shift+Escape 	exec i3-msg exit
+
+# #---Letter Key Bindings---# #
+bindsym $mod+q			kill
+bindsym $mod+Shift+q		kill
+bindsym $mod+x 			exec --no-startup-id $HOME/.config/scripts/lock.sh
+bindsym $mod+Shift+x 		exec $shutdown
+bindsym $mod+Shift+s 		exec --no-startup-id ~/.config/scripts/screendmenu.sh
+bindsym $mod+BackSpace 		exec --no-startup-id i3-msg exit
+
+bindsym $mod+b			exec --no-startup-id $browser
+bindsym $mod+s 			exec --no-startup-id spotify
+bindsym $mod+Shift+n 		exec --no-startup-id Thunar
+bindsym $mod+n 			exec --no-startup-id $term ranger
+bindsym $mod+d 			exec --no-startup-id dmenu_run
+bindsym $mod+m 			exec --no-startup-id $term ~/.config/scripts/neomutt.sh
+
+bindsym $mod+f			fullscreen toggle
+bindsym $mod+t 			split toggle
+
+# #---Arrow Keys---# #
+bindsym $mod+Left		focus left
+bindsym $mod+Down		focus down
+bindsym $mod+Up			focus up
+bindsym $mod+Right 		focus right
+bindsym $mod+h 			focus left
+bindsym $mod+j 			focus down
+bindsym $mod+k 			focus up
+bindsym $mod+l 			focus right
+
+bindsym $mod+Shift+Left		move left
+bindsym $mod+Shift+Down		move down
+bindsym $mod+Shift+Up		move up
+bindsym $mod+Shift+Right 	move right
+bindsym $mod+Shift+h		move left
+bindsym $mod+Shift+j		move down
+bindsym $mod+Shift+k		move up
+bindsym $mod+Shift+l 	 	move right
+
+# #---Gaps--- # #
+bindsym $mod+i 			gaps inner current plus 4
+bindsym $Mod+Shift+i 		gaps inner current minus 4
+bindsym $Mod+Shift+Ctrl+i	gaps inner current set 0
+bindsym $mod+o 			gaps outer current plus 4
+bindsym $Mod+Shift+o 		gaps outer current minus 4
+bindsym $Mod+Shift+Ctrl+o	gaps outer current set 0
+
+bindsym $mod+Shift+t 		gaps outer current set 0; gaps inner current set 8
+
+# Print screen takes a screenshot.
+# With shift, it takes one only of the given window.
+bindsym Print 			exec --no-startup-id scrot -e 'mv $f ~/Pictures/Screenshots/'
+bindsym Shift+Print 		exec --no-startup-id scrot -u -e 'mv $f ~/Pictures/Screenshots/'
+
+# #---Extra XF86 Keys---# #
+# These are the extra media keys that some keyboards have.
+bindsym XF86AudioMute		exec $mute
+bindsym XF86AudioRaiseVolume	exec $inc
+bindsym XF86AudioLowerVolume	exec $dec
+bindsym XF86PowerOff		exec $shutdown
+bindsym XF86Calculator		exec $term -e python3
+bindsym XF86Sleep		exec sudo zzz
+bindsym XF86Explorer		exec $term -e ranger
+bindsym XF86ScreenSaver		exec exec --no-startup-id ~/.config/i3/lock.sh
+bindsym XF86AudioNext		exec $next
+bindsym XF86AudioPlay		exec $pause
+bindsym XF86AudioPrev		exec $prev
+bindsym XF86AudioStop		exec $pause
+bindsym XF86Reload		restart
+bindsym XF86Suspend		exec --no-startup-id ~/.config/scripts/lock.sh
+bindsym XF86Close		kill
+bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 15
+bindsym XF86MonBrightnessUp	exec --no-startup-id xbacklight -inc 15
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 1 px or 1 ppt
+        bindsym j resize grow height 1 px or 1 ppt
+        bindsym k resize shrink height 1 px or 1 ppt
+        bindsym l resize grow width 1 px or 1 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 1 px or 1 ppt
+        bindsym Down resize grow height 1 px or 1 ppt
+        bindsym Up resize shrink height 1 px or 1 ppt
+        bindsym Right resize grow width 1 px or 1 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+set $bg     #2c2c2e
+set $fg     #9f9f9f
+set $hi     #efef8f
+set $ac     #a0afa0
+set $tx     #040404
+set $ia     #8f8f8f
+set $be     #8faf9f
+set $yw     #ccdc90
+set $gn     #88b090
+set $rd     #e89393
+
+# set some nice colors      border     background  text
+client.focused              $yw        $yw         $tx
+client.unfocused            $bg        $bg         $ia
+client.focused_inactive     $bg        $bg         $ac
+client.urgent               $rd        $rd         $tx
+
+# For floating window where for backup scripts
+for_window [title="backups.sh"] floating enable

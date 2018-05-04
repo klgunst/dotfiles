@@ -1,0 +1,2 @@
+SSH_AGENT_PID 	DEFAULT=
+SSH_AUTH_SOCK   DEFAULT=/run/user/1000/gnupg/S.gpg-agent.ssh
