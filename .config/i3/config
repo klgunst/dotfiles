@@ -29,6 +29,13 @@ set $dec --no-startup-id amixer sset Master 2%-
 set $bigdec --no-startup-id amixer sset Master 5%-
 set $mute --no-startup-id amixer sset Master toggle
 
+##For spotify
+set $pause dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+set $trupause dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause
+set $play dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play
+set $next dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+set $prev dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec $term tmux
 bindsym $mod+Shift+Return 		exec $term
@@ -185,3 +192,4 @@ client.urgent               $rd        $rd         $tx
 
 # For floating window where for backup scripts
 for_window [title="backups.sh"] floating enable
+for_window [title="sync.sh"] floating enable

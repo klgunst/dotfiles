@@ -25,12 +25,16 @@ then
     done
 fi
 
-# muting
 # pause spotify
-#dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
-#    org.mpris.MediaPlayer2.Player.PlayPause
-#set $trupause dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify \
-# 	/org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
+    org.mpris.MediaPlayer2.Player.PlayPause
 
+# muting all the rest
 amixer sset Master toggle
-i3lock -n -u -e -i /tmp/screen.png; amixer sset Master toggle
+i3lock -n -u -e -i /tmp/screen.png
+
+# unmuting all the rest
+amixer sset Master toggle
+# play spotify
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
+    org.mpris.MediaPlayer2.Player.PlayPause

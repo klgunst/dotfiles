@@ -84,4 +84,4 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 export GPG_TTY=$(tty)
 
 # refresh gpg-agent tty in case user switches int an X session
-gpg-connect-agent updatestartuptty /bye > /dev/null
+gpg-connect-agent updatestartuptty /bye &>/dev/null

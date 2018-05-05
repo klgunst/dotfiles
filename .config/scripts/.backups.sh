@@ -24,8 +24,8 @@ cat $HOME/.exclude-backup.txt > /tmp/exclude-backup.txt
 git --git-dir=$HOME/.cfg/ --work-tree=$HOME ls-files --full-name ~ >> /tmp/exclude-backup.txt
 sed -i -e "s/^/$USER\//" /tmp/exclude-backup.txt
 
-xbps-query -m > $HOME/.manually_installed_packages
-ls /var/service > $HOME/.services_activated
+xbps-query -m > $HOME/.manually_installed_packages-$(hostname)
+ls /var/service > $HOME/.services_activated-$(hostname)
 
 #local backup
 $HOME/.config/scripts/.localbackup.sh > $HOME/.lastbackup

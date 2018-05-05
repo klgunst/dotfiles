@@ -289,7 +289,7 @@ type = custom/script
 exec = tail -n 1 ~/.lastbackup
 interval = 10
 format = <label>
-click-middle = ~/.config/scripts/do_backups.sh
+click-right = ~/.config/scripts/do_backups.sh
 format-underline = ${xrdb:color15}
 label =  %output%
 
