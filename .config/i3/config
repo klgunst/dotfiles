@@ -4,7 +4,7 @@
 #Needed for i3-gaps
 for_window [class="^.*"] border pixel 3
 gaps outer 0
-gaps inner 8
+gaps inner 4
 font inconsolata:mono 10
 set $mod Mod1
 set $term --no-startup-id st 
@@ -18,6 +18,8 @@ exec_always --no-startup-id ~/.config/scripts/initscreen.sh
 exec --no-startup-id unclutter
 #for remapping capslock to mod key
 exec --no-startup-id xmodmap ~/.xmodmap
+#for making transparent
+exec --no-startup-id compton
 
 #RUNIT
 set $shutdown ~/.config/scripts/shutdown.sh
@@ -91,7 +93,7 @@ bindsym $mod+o 			gaps outer current plus 4
 bindsym $Mod+Shift+o 		gaps outer current minus 4
 bindsym $Mod+Shift+Ctrl+o	gaps outer current set 0
 
-bindsym $mod+Shift+t 		gaps outer current set 0; gaps inner current set 8
+bindsym $mod+Shift+t 		gaps outer current set 0; gaps inner current set 4
 
 # Print screen takes a screenshot.
 # With shift, it takes one only of the given window.
@@ -160,6 +162,10 @@ mode "resize" {
         bindsym j resize grow height 1 px or 1 ppt
         bindsym k resize shrink height 1 px or 1 ppt
         bindsym l resize grow width 1 px or 1 ppt
+        bindsym Shift+h resize shrink width 4 px or 4 ppt
+        bindsym Shift+j resize grow height 4 px or 4 ppt
+        bindsym Shift+k resize shrink height 4 px or 4 ppt
+        bindsym Shift+l resize grow width 4 px or 4 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 1 px or 1 ppt

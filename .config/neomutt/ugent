@@ -16,3 +16,6 @@ set sendmail 	= "/usr/bin/msmtp -a UGent"
 set from 	= "Klaas.Gunst@UGent.be"
 set realname 	= "Klaas Gunst"
 set record 	= "+UGent/Verzonden\ items"
+
+macro index S ":set confirmappend=no delete=yes\n<tag-prefix-cond><save-message>$mbox\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+macro index A ":set confirmappend=no delete=yes\n<save-message>$mbox\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"

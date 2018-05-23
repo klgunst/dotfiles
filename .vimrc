@@ -18,9 +18,10 @@ call plug#end()
 
 "Colorscheme
 colorscheme gruvbox
-":colorscheme industry
-":hi Comment ctermfg=LightBlue
-hi Folded ctermbg=NONE
+"colorscheme industry
+hi Comment ctermfg=81
+hi Folded guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 set colorcolumn=100
 highlight ColorColumn ctermbg=darkgrey
