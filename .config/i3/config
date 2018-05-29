@@ -5,9 +5,10 @@
 for_window [class="^.*"] border pixel 3
 gaps outer 0
 gaps inner 4
-font inconsolata:mono 10
+font inconsolata-LGC 10
 set $mod Mod1
-set $term --no-startup-id st 
+set $term   --no-startup-id st
+set $term_fwd --no-startup-id ~/.config/scripts/term_fwd
 set $browser firefox
 focus_follows_mouse no
 
@@ -22,7 +23,7 @@ exec --no-startup-id xmodmap ~/.xmodmap
 exec --no-startup-id compton
 
 #RUNIT
-set $shutdown ~/.config/scripts/shutdown.sh
+set $shutdown --no-startup-id ~/.config/scripts/shutdown.sh
 
 # #---Audio and Music Definitions---# #
 set $inc --no-startup-id amixer sset Master 2%+
@@ -39,8 +40,8 @@ set $next dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpr
 set $prev dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
 # #---Basic Bindings---# #
-bindsym $mod+Return 		exec $term tmux
-bindsym $mod+Shift+Return 		exec $term
+bindsym $mod+Return 		exec $term
+bindsym $mod+Shift+Return	exec $term_fwd
 
 bindsym $mod+Shift+space 	floating toggle
 bindsym $mod+space		focus mode_toggle
@@ -58,9 +59,10 @@ bindsym $mod+BackSpace 		exec --no-startup-id i3-msg exit
 
 bindsym $mod+b			exec --no-startup-id $browser
 bindsym $mod+s 			exec --no-startup-id spotify
-bindsym $mod+Shift+n 		exec --no-startup-id Thunar
+#bindsym $mod+Shift+n 		exec --no-startup-id Thunar
 bindsym $mod+n 			exec --no-startup-id $term ranger
-bindsym $mod+d 			exec --no-startup-id dmenu_run
+bindsym $mod+Shift+n 		exec $term_fwd ranger
+bindsym $mod+d 			exec --no-startup-id dmenu_run -fn 'inconsolata-LGC:size=20'
 bindsym $mod+m 			exec --no-startup-id $term ~/.config/scripts/neomutt.sh
 
 bindsym $mod+f			fullscreen toggle
@@ -191,7 +193,7 @@ set $gn     #88b090
 set $rd     #e89393
 
 # set some nice colors      border     background  text
-client.focused              $yw        $yw         $tx
+client.focused              $hi        $hi         $tx
 client.unfocused            $bg        $bg         $ia
 client.focused_inactive     $bg        $bg         $ac
 client.urgent               $rd        $rd         $tx

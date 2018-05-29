@@ -1,13 +1,13 @@
 #!/bin/bash
 
 ask_screen(){
-    screen=$(cat /tmp/screens | dmenu -i -p "$1 screen?" -fn 'inconsolata Mono:pixelsize=22')
+    screen=$(cat /tmp/screens | dmenu -i -p "$1 screen?" -fn 'inconsolata-LGC:size=20')
     echo $screen
     sed -i "/$screen/d" /tmp/screens
 }
 
 ask_position(){
-    echo -e "left-of\nright-of\nabove\nbelow" | dmenu -i -p "Position from primary?" -fn 'inconsolata Mono:pixelsize=22'
+    echo -e "left-of\nright-of\nabove\nbelow" | dmenu -i -p "Position from primary?" -fn 'inconsolata-LGC:size=20'
 }
 
 select_wallpaper(){
@@ -48,7 +48,7 @@ then
 fi
 if [ $connected -ge 3 ]
 then
-    echo "OK" | dmenu -i -p "Script not specified for more than 2 screens. Going autopilot..." -fn 'inconsolata Mono:pixelsize=22' > /dev/null
+    echo "OK" | dmenu -i -p "Script not specified for more than 2 screens. Going autopilot..." -fn 'inconsolata-LGC:size=20' > /dev/null
     execute="xrandr --auto"
 fi
 

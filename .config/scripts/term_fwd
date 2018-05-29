@@ -1,0 +1,53 @@
+#!/bin/bash
+# Written by Klaas Gunst
+
+# term_fwd : script that initializes a terminal at the location of the current working directory of
+# the focused window
+# 1 argument can be passed with it that will execute a command passing it to st (simple terminal)
+# I have to do it this way instead of st -e "cd `xcwd' && $SHELL" or something like that
+# since st with the argument can only execute a program that can be found in $PATH with some 
+# arguments and not an arbitrary Shell command. cd is a built in shell command, normally you won't
+# find a binary in /usr/bin or smthing like that
+
+pfwd () {
+# pfwd : function for printing focused working directory
+
+# If the focused window is a terminal, print the working dir of the terminal.
+# If the focused window is a terminal with ranger in it, print the current location of ranger.
+# If the focused window is a terminal with neomutt in it, print ~/Downloads, i.e. the download-folder for neomutt.
+# If the focused window is a terminal with vim in it, print the parent directory of the current open file.
+# Else print $HOME
+#
+# For terminal,ranger,neomutt we can use xcwd (https://github.com/schischi/xcwd).
+# However, for vim it will not necessarily point to the parent directory of the current open file
+# but the location where vim was invoked.
+
+FOCUSED_INFO=$(xdotool getwindowfocus | xargs xprop -notype -id)
+term="st-256color"
+
+# First check if it is a terminal based program that is in focus.
+if [[ $(echo $FOCUSED_INFO | grep WM_CLASS | grep $term) ]]; then
+    # The program is terminal based.
+
+    # Check of the terminal is running vim
+    if [[ $(echo $FOCUSED_INFO | grep WM_NAME | grep VIM) ]]; then
+	#vim: parse WM_NAME appropriately
+	#grep the two WM_NAME line and possibly _NET_WM_NAME line
+	#select the first line, because i only need WM_NAME or _NET_WM_NAME
+	#cut away the part left of the string of the (
+	#cut away the right part of the string of )
+	#sed changes the tilde symol by the the expanded home.
+	#i need | as separator here instead of \ because otherwise faulty things happen when expanding
+	echo $FOCUSED_INFO | grep WM_NAME | head -n1 | cut -d "(" -f2 | cut -d ")" -f1 | sed "s|\~|$HOME|"
+    else
+	#not vim, output xcwd
+	xcwd
+    fi
+else
+    #not terminal based, output $HOME
+    echo $HOME
+fi
+}
+
+cd `pfwd`
+st $1

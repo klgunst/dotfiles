@@ -1,9 +1,8 @@
 #!/bin/bash
 shot="/tmp/screen.png"
-lock="$HOME/.config/scripts/.lock.png"
+lock="$HOME/.config/scripts/lock.png"
 scrot -z $shot
-#convert /tmp/screen.png -paint 1 /tmp/screen.png
-convert $shot -blur 0x3 $shot
+convert $shot -scale 25% -blur 0x2 -scale 400% $shot
 WIDTHOFF=$(( $(feh -l $shot | tail -n 1 | awk '{printf $3;}') / 2 ))
 HEIGHTOFF=$(( $(feh -l $shot | tail -n 1 | awk '{printf $4;}') / 2 ))
 

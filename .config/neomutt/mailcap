@@ -1,4 +1,19 @@
-text/html; w3m -I %{charset} -T text/html; copiousoutput;
-text/plain; vim %s ;
-application/pdf; evince %s ;
-image/*; feh %s ;
+text/html; 			w3m -I %{charset} -T text/html; copiousoutput;
+text/plain; 			vim %s;
+image/*; 			feh %s; copiousoutput;
+
+application/msword;             libreoffice %s; copiousoutput
+application/vnd.msword;         libreoffice %s copiousoutput
+application/excel;              libreoffice %s; copiousoutput
+application/msexcel;            libreoffice %s; copiousoutput
+application/vnd.ms-excel;       libreoffice %s; copiousoutput
+application/x-excel;            libreoffice %s; copiousoutput
+application/x-msexcel;          libreoffice %s; copiousoutput
+application/vnd.ms-powerpoint;  libreoffice %s; copiousoutput
+application/x-mspowerpoint;     libreoffice %s; copiousoutput
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; libreoffice '%s';  description="Office Open XML Spreadsheet"; nametemplate=%s.xlsx
+application/ppt;                libreoffice %s; copiousoutput
+application/msword;		libreoffice %s; copiousoutput
+application/vnd.msword;         libreoffice %s; copiousoutput
+application/postscript; 	evince %s; copiousoutput
+application/pdf; 		evince %s; copiousoutput

@@ -17,6 +17,7 @@ Plug 'morhetz/gruvbox'
 call plug#end()
 
 "Colorscheme
+let g:gruvbox_italic=1
 colorscheme gruvbox
 "colorscheme industry
 hi Comment ctermfg=81
@@ -70,4 +71,5 @@ autocmd BufWritePost *.odt :!pandoc -f markdown -t odt % > tmp.odt
 
 "For neomutt
 au BufRead /tmp/neomutt-* set tw=80
+au BufRead /tmp/neomutt-* set colorcolumn=80
 au BufRead /tmp/neomutt-* set spell
