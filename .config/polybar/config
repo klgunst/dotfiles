@@ -45,7 +45,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = Siji:pixelsize=30;1
 
 modules-left = i3
-modules-right = cpu memory root home battery temperature wlan eth volume xbacklight lastbackup date
+modules-right = cpu memory root home battery temperature wlan eth volume lastbackup date
 
 tray-position = right
 tray-padding = 0
@@ -143,7 +143,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wls1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -161,7 +161,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp62s0u1u2
+interface = enp0s25
 interval = 3.0
 
 format-connected-underline = ${xrdb:color2}
@@ -169,7 +169,7 @@ format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = "%upspeed:8%  %downspeed:8:8% "
 
-format-disconnected = <label-disconnected>
+format-disconnected =
 format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = %ifname% disconnected
 label-disconnected-foreground = ${colors.foreground-alt}
