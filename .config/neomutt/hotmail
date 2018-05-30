@@ -4,13 +4,18 @@ set mbox_type = Maildir
 ## my hotmail
 # receive options
 set spoolfile 	= "+Hotmail/Inbox"
+set mbox 	= "+Hotmail/Archive"
 set postponed 	= "+Hotmail/Drafts"
 set trash 	= "+Hotmail/Trash"
+
 unmailboxes *
-mailboxes +Hotmail/Inbox +Hotmail/Drafts +Hotmail/Trash +Hotmail/Sent
+mailboxes +Hotmail/Inbox +Hotmail/Drafts +Hotmail/Trash +Hotmail/Sent +Hotmail/Archive
 
 # send options
 set realname 	= "Klaas Gunst"
 set from 	= "klaasgunst@hotmail.com"
 set sendmail 	= "/usr/bin/msmtp -a hotmail"
 set record 	= "+Hotmail/Sent"
+
+macro index S ":set confirmappend=no delete=yes\n<tag-prefix-cond><save-message>$mbox\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+macro index A ":set confirmappend=no delete=yes\n<save-message>$mbox\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"

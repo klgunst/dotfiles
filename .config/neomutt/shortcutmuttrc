@@ -14,4 +14,4 @@ bind pager g top
 bind pager G bottom
 bind attach,index g first-entry
 bind attach,index G last-entry
-bind index R group-reply
+bind index,pager R group-reply

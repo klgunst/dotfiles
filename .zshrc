@@ -76,6 +76,7 @@ bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
 
 alias vi="vim "
+alias rcd='ranger --choosedir=/tmp/rcd; LASTDIR=`cat /tmp/rcd`; cd "$LASTDIR"'
 alias rm="rm -v "
 alias gpg="gpg2"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
