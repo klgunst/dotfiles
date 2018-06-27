@@ -14,6 +14,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'LaTex-Box-Team/LaTeX-Box'
 Plug 'ervandew/supertab'
 Plug 'morhetz/gruvbox'
+Plug 'haya14busa/vim-gtrans'
 call plug#end()
 
 "Colorscheme

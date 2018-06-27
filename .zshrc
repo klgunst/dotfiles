@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:$HOME/go/bin
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/kgunst/.oh-my-zsh
@@ -86,3 +87,4 @@ export GPG_TTY=$(tty)
 
 # refresh gpg-agent tty in case user switches int an X session
 gpg-connect-agent updatestartuptty /bye &>/dev/null
+[ -f ~/.gtrans.sh ] && source ~/.gtrans.sh
