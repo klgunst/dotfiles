@@ -104,23 +104,26 @@ bindsym Shift+Print 		exec --no-startup-id scrot -u -e 'mv $f ~/Pictures/Screens
 
 # #---Extra XF86 Keys---# #
 # These are the extra media keys that some keyboards have.
-bindsym XF86AudioMute		exec $mute
-bindsym XF86AudioRaiseVolume	exec $inc
-bindsym XF86AudioLowerVolume	exec $dec
-bindsym XF86PowerOff		exec $shutdown
-bindsym XF86Calculator		exec $term -e python3
-bindsym XF86Sleep		exec sudo zzz
-bindsym XF86Explorer		exec $term -e ranger
-bindsym XF86ScreenSaver		exec exec --no-startup-id ~/.config/i3/lock.sh
-bindsym XF86AudioNext		exec $next
-bindsym XF86AudioPlay		exec $pause
-bindsym XF86AudioPrev		exec $prev
-bindsym XF86AudioStop		exec $pause
-bindsym XF86Reload		restart
-bindsym XF86Suspend		exec --no-startup-id ~/.config/scripts/lock.sh
-bindsym XF86Close		kill
-bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 15
-bindsym XF86MonBrightnessUp	exec --no-startup-id xbacklight -inc 15
+bindsym XF86AudioMute			exec $mute
+bindsym XF86AudioRaiseVolume		exec $inc
+bindsym XF86AudioLowerVolume		exec $dec
+bindsym XF86PowerOff			exec $shutdown
+bindsym XF86Calculator			exec $term -e python3
+bindsym XF86Sleep			exec sudo zzz
+bindsym XF86Explorer			exec $term -e ranger
+bindsym XF86ScreenSaver			exec exec --no-startup-id ~/.config/i3/lock.sh
+bindsym XF86AudioNext			exec $next
+bindsym XF86AudioPlay			exec $pause
+bindsym XF86AudioPrev			exec $prev
+bindsym XF86AudioStop			exec $pause
+bindsym Pause 				exec $pause
+bindsym XF86Reload			restart
+bindsym XF86Suspend			exec --no-startup-id ~/.config/scripts/lock.sh
+bindsym XF86Close			kill
+bindsym XF86MonBrightnessDown		exec --no-startup-id xbacklight -dec 5
+bindsym XF86MonBrightnessUp		exec --no-startup-id xbacklight -inc 5
+bindsym Shift+XF86MonBrightnessDown	exec --no-startup-id xbacklight -set 1
+bindsym Shift+XF86MonBrightnessUp	exec --no-startup-id xbacklight -set 100
 
 # switch to workspace
 bindsym $mod+1 workspace 1
