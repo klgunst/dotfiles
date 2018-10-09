@@ -9,7 +9,7 @@ set postponed 	= "+UGent/Drafts"
 set trash 	= "+UGent/Trash"
 
 unmailboxes *
-mailboxes +UGent/INBOX +UGent/Drafts +UGent/Trash "+UGent/Verzonden\ items" +UGent/Archive
+mailboxes +UGent/INBOX +UGent/Archive "+UGent/Verzonden\ items" +UGent/Trash +UGent/Drafts
 
 # send options
 set sendmail 	= "/usr/bin/msmtp -a UGent"

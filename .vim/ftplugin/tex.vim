@@ -7,12 +7,16 @@ set foldmethod=indent
 "spell check
 set spell
 
-"text width too 100
-set textwidth=100
+"text width to 80
+set textwidth=80
 
 "disable highlighting of italics and bold
 hi clear texItalStyle
 hi clear texBoldStyle
 
-let g:LatexBox_latexmk_preview_continuously=1
-let g:LatexBox_quickfix=2
+let g:vimtex_compiler_method='latexmk'
+let g:vimtex_view_general_viewer = 'evince'
+
+if empty(v:servername) && exists('*remote_startserver')
+    call remote_startserver('VIM')
+endif

@@ -26,11 +26,11 @@ exec --no-startup-id compton
 set $shutdown --no-startup-id ~/.config/scripts/shutdown.sh
 
 # #---Audio and Music Definitions---# #
-set $inc --no-startup-id amixer sset Master 2%+
-set $biginc --no-startup-id amixer sset Master 5%+
-set $dec --no-startup-id amixer sset Master 2%-
-set $bigdec --no-startup-id amixer sset Master 5%-
-set $mute --no-startup-id amixer sset Master toggle
+set $inc --no-startup-id ~/.config/scripts/volumecontrol.sh +2%
+set $biginc --no-startup-id ~/.config/scripts/volumecontrol.sh +5%
+set $dec --no-startup-id ~/.config/scripts/volumecontrol.sh -2%
+set $bigdec --no-startup-id ~/.config/scripts/volumecontrol.sh -5%
+set $mute --no-startup-id ~/.config/scripts/volumecontrol.sh mute
 
 ##For spotify
 set $pause dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -55,7 +55,7 @@ bindsym $mod+Shift+q		kill
 bindsym $mod+x 			exec --no-startup-id $HOME/.config/scripts/lock.sh
 bindsym $mod+Shift+x 		exec $shutdown
 bindsym $mod+Shift+s 		exec --no-startup-id ~/.config/scripts/screendmenu.sh
-bindsym $mod+BackSpace 		exec --no-startup-id i3-msg exit
+#bindsym $mod+BackSpace 		exec --no-startup-id i3-msg exit
 
 bindsym $mod+b			exec --no-startup-id $browser
 bindsym $mod+s 			exec --no-startup-id spotify

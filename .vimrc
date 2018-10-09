@@ -10,8 +10,7 @@ set shiftwidth=4
 call plug#begin('$HOME/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'abudden/taghighlight-automirror'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'LaTex-Box-Team/LaTeX-Box'
+Plug 'lervag/vimtex'
 Plug 'ervandew/supertab'
 Plug 'morhetz/gruvbox'
 Plug 'haya14busa/vim-gtrans'
@@ -29,40 +28,49 @@ hi Normal guibg=NONE ctermbg=NONE
 " Set a nicer foldtext function
 set foldtext=MyFoldText()
 function! MyFoldText()
-  let line = getline(v:foldstart)
-  if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
-    let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
-    let linenum = v:foldstart + 1
-    while linenum < v:foldend
-      let line = getline( linenum )
-      let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
-      if comment_content != ''
-        break
-      endif
-      let linenum = linenum + 1
-    endwhile
-    let sub = initial . ' ' . comment_content
-  else
-    let sub = line
-    let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
-    if startbrace == '{'
-      let line = getline(v:foldend)
-      let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
-      if endbrace == '}'
-        let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
-      endif
+    let line = getline(v:foldstart)
+    if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
+	let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
+	let linenum = v:foldstart + 1
+	while linenum < v:foldend
+	    let line = getline( linenum )
+	    let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
+	    if comment_content != ''
+		break
+	    endif
+	    let linenum = linenum + 1
+	endwhile
+	let sub = initial . ' ' . comment_content
+    else
+	let sub = line
+	let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
+	if startbrace == '{'
+	    let line = getline(v:foldend)
+	    let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
+	    if endbrace == '}'
+		let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
+	    endif
+	endif
     endif
-  endif
-  let n = v:foldend - v:foldstart + 1
-  let info = " " . n . " lines"
-  let sub = sub . "                                                                                                                  "
-  let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
-  let fold_w = getwinvar( 0, '&foldcolumn' )
-  let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
-  return sub . info
+    let n = v:foldend - v:foldstart + 1
+    let info = " " . n . " lines"
+    let sub = sub . "                                                                                                                  "
+    let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
+    let fold_w = getwinvar( 0, '&foldcolumn' )
+    let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
+    return sub . info
 endfunction
 
-set colorcolumn=100
+"This is to prevent that all folds open when an automatic folding method is
+"used. By inserting text that start a fold, all folds beneath it would open
+"otherwise.
+"
+"set fold method to manual when in insert
+autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+"set fold method to previous fold method again
+autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+
+set colorcolumn=80
 highlight ColorColumn ctermbg=darkgrey
 
 nnoremap <space> za
@@ -88,11 +96,6 @@ nnoremap <F5> :buffers<CR>:edit<space>#
 au FileType * exec("setlocal dictionary+=".$HOME."/.vim/dictionaries/".expand('<amatch>'))
 set complete+=k
 
-"highlight cursor with \c
-:hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-:hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-:nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
-
 "spelling
 set spelllang=en_us
 
@@ -111,3 +114,14 @@ autocmd BufWritePost *.odt :!pandoc -f markdown -t odt % > tmp.odt
 au BufRead /tmp/neomutt-* set tw=80
 au BufRead /tmp/neomutt-* set colorcolumn=80
 au BufRead /tmp/neomutt-* set spell
+
+"For splits
+"Remapping navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"more natural splitting
+set splitbelow
+set splitright

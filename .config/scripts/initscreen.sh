@@ -32,22 +32,21 @@ if [ $connected -eq 1 ]
 then
     execute="xrandr --auto"
     primary=$(ask_screen)
-    fehcommand="feh --bg-fill $(select_wallpaper $primary)"
 fi
-if [ $connected -ge 2 ]
+if [ $connected -eq 2 ]
 then
     primary=$(ask_screen)
     secondary=$(ask_screen)
     position="right-of"
 
     execute="xrandr --output $primary --auto --primary --output $secondary --auto --$position $primary"
-
-    fehcommand="feh --bg-fill $(select_wallpaper $primary) $(select_wallpaper $secondary)"
-
 fi
 if [ $connected -ge 3 ]
 then
-    execute="xrandr --auto"
+    primary=$(ask_screen)
+    secondary=$(ask_screen)
+    tertiary=$(ask_screen)
+    execute="xrandr --output $primary --primary --auto --output $secondary --auto --right-of $primary --output $tertiary --auto --left-of $primary"
 fi
 
 $execute
@@ -58,13 +57,13 @@ if [ $connected -eq 1 ]
 then
     fehcommand="feh --bg-fill $(select_wallpaper $primary)"
 fi
-if [ $connected -ge 2 ]
+if [ $connected -eq 2 ]
 then
     fehcommand="feh --bg-fill $(select_wallpaper $primary) $(select_wallpaper $secondary)"
 fi
 if [ $connected -ge 3 ]
 then
-    fehcommand="feh --randomize --bg-fill $HOME/.config/wallpapers/default"
+    fehcommand="feh --bg-fill $(select_wallpaper $primary) $(select_wallpaper $secondary) $(select_wallpaper $tertiary)"
 fi
 
 $fehcommand
