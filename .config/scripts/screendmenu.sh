@@ -1,5 +1,8 @@
 #!/bin/bash
 
+WALLPAPERPATH="$HOME/Wallpapers"
+DEFAULT="default"
+
 ask_screen(){
     screen=$(cat /tmp/screens | dmenu -i -p "$1 screen?" -fn 'inconsolata-LGC:size=20')
     echo $screen
@@ -11,8 +14,6 @@ ask_position(){
 }
 
 select_wallpaper(){
-    WALLPAPERPATH="$HOME/Wallpapers"
-    DEFAULT="default"
 
     # selects resolution, awk selects third word, sed removes the offset in xrandr
     res=$(cat /tmp/screeninfo | grep $1 | grep -o '[0-9]\+x[0-9]\+')
@@ -37,7 +38,7 @@ then
     execute="xrandr --auto"
     primary=$(cat /tmp/screens)
 fi
-if [ $connected -ge 2 ]
+if [ $connected -eq 2 ]
 then
     primary=$(ask_screen "Primary")
     secondary=$(ask_screen "Secondary")
@@ -60,7 +61,7 @@ if [ $connected -eq 1 ]
 then
     fehcommand="feh --bg-fill $(select_wallpaper $primary)"
 fi
-if [ $connected -ge 2 ]
+if [ $connected -eq 2 ]
 then
     echo $primary
     echo $secondary
@@ -68,8 +69,8 @@ then
 fi
 if [ $connected -ge 3 ]
 then
-    fehcommand="feh --randomize --bg-fill $HOME/.config/wallpapers/default"
+    fehcommand="feh --bg-fill $(select_wallpaper $primary) $(select_wallpaper $secondary) $(select_wallpaper $tertiary)"
 fi
 
 $fehcommand
-$HOME/.config/polybar/launch.sh
+$HOME/.config/scripts/.polybarlaunch.sh
