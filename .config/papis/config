@@ -1,0 +1,17 @@
+[settings]
+default-library = papers
+
+# use ranger as a file browser
+file-browser = ranger
+
+# Edit the info.yaml file before adding a doc into the library
+add-edit = True
+
+# picktool = vim
+
+# Libraries
+[papers]
+dir = ~/Documents/library/papers
+
+[books]
+dir = ~/Documents/library/books

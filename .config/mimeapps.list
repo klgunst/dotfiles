@@ -14,6 +14,7 @@ image/jpeg=feh.desktop;
 inode/directory=Thunar.desktop;
 application/x-ica=wfica.desktop
 application/vnd.citrix.receiver.configure=new_store.desktop
+application/pdf=org.gnome.Evince.desktop;
 
 [Added Associations]
 x-scheme-handler/http=userapp-Firefox-N1A1EZ.desktop;userapp-Firefox-C399FZ.desktop;

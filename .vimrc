@@ -14,6 +14,8 @@ Plug 'lervag/vimtex'
 Plug 'ervandew/supertab'
 Plug 'morhetz/gruvbox'
 Plug 'haya14busa/vim-gtrans'
+Plug 'junegunn/fzf'
+"Plug 'papis/papis-vim'
 call plug#end()
 
 "Colorscheme
