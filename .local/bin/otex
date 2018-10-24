@@ -1,4 +1,12 @@
 #!/bin/bash
+
+if [ "x$1" != "x" ]; then
+    cd $1 2> /dev/null
+    if [ $? -ne 0 ]; then
+	exit 1
+    fi
+fi
+
 FILE=$(ls *.latexmain 2> /dev/null | sed 's/\.tex\.latexmain//')
 
 if [ "x$FILE" == "x" ]; then
