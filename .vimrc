@@ -7,6 +7,16 @@ set number
 set relativenumber
 set shiftwidth=4
 
+"buffer switching without save
+set hidden
+
+"spelling
+set spelllang=en_us
+
+"more natural splitting
+set splitbelow
+set splitright
+
 call plug#begin('$HOME/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'abudden/taghighlight-automirror'
@@ -21,11 +31,16 @@ call plug#end()
 "Colorscheme
 let g:gruvbox_italic=1
 colorscheme gruvbox
-"colorscheme industry
 hi Comment ctermfg=81
 
 hi Folded guibg=NONE ctermbg=NONE
 hi Normal guibg=NONE ctermbg=NONE
+set colorcolumn=80
+highlight ColorColumn ctermbg=darkgrey
+
+"include dictionaries
+au FileType * exec("setlocal dictionary+=".$HOME."/.vim/dictionaries/".expand('<amatch>'))
+set complete+=k
 
 " Set a nicer foldtext function
 set foldtext=MyFoldText()
@@ -66,56 +81,47 @@ endfunction
 "This is to prevent that all folds open when an automatic folding method is
 "used. By inserting text that start a fold, all folds beneath it would open
 "otherwise.
-"
-"set fold method to manual when in insert
-autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-"set fold method to previous fold method again
-autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+augroup foldrestore
+    autocmd!
+    "set fold method to manual when in insert
+    autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+    "set fold method to previous fold method again
+    autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+augroup END
 
-set colorcolumn=80
-highlight ColorColumn ctermbg=darkgrey
-
+" MAPPINGS
+let mapleader = "-"
+let maplocalleader = "\\"
 nnoremap <space> za
 vnoremap <space> zf
+noremap L $
+noremap H ^
+" Maybe generalise that these work for [] and {} and \"" with same mapping
+onoremap p i(
+onoremap in( :<c-u>execute "normal! /(\rvi("<cr>
+onoremap il( :<c-u>execute "normal! ?)\rvi("<cr>
+
+" forget old mappings can be deleted once used to L and H
+noremap ^ <nop>
+noremap $ <nop>
+
+"for editing vimrc from vim
+"<cr> is carriage return or Enter
+nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "alt key (is equal to escape key in terminal apparently) alt key is \e
 "remaps alt+] to right one
-"execute "set <M-]>=\e]"
+execute "set <M-]>=\e]"
 
 "ctags modifications
 "ctrl + \ opens tag in new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-"ctrl + ] opens tag in vertical split
-map <M-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-
-"buffer switching without save
-set hidden
+"alt + ] opens tag in horizontal split
+map <M-]> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "remapping F5 for buffer menu
 nnoremap <F5> :buffers<CR>:edit<space>#
-
-"include dictionaries
-au FileType * exec("setlocal dictionary+=".$HOME."/.vim/dictionaries/".expand('<amatch>'))
-set complete+=k
-
-"spelling
-set spelllang=en_us
-
-"for latex, .tex files are standard latex and not plaintex for example
-let g:tex_flavor = "latex"
-let g:LatexBox_viewer = "evince"
-
-"for .docx files, read through pandoc to markdown format
-autocmd BufReadPost *.docx :%!pandoc -f docx -t markdown
-autocmd BufWritePost *.docx :!pandoc -f markdown -t docx % > tmp.docx
-
-autocmd BufReadPost *.odt :%!pandoc -f odt -t markdown
-autocmd BufWritePost *.odt :!pandoc -f markdown -t odt % > tmp.odt
-
-"For neomutt
-au BufRead /tmp/neomutt-* set tw=80
-au BufRead /tmp/neomutt-* set colorcolumn=80
-au BufRead /tmp/neomutt-* set spell
 
 "For splits
 "Remapping navigation
@@ -123,7 +129,3 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-"more natural splitting
-set splitbelow
-set splitright

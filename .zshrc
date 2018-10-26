@@ -75,10 +75,10 @@ bindkey -v
 bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
 
+# Aliases moved to .oh-my-zsh/custom/aliases.zsh
+
 # for gpg-agent to ssh-agent
 export GPG_TTY=$(tty)
-
-# Aliases moved to .oh-my-zsh/custom/aliases.zsh
 
 # refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye &>/dev/null

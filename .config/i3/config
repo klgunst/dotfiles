@@ -7,8 +7,9 @@ gaps outer 0
 gaps inner 4
 font inconsolata-LGC 10
 set $mod Mod1
+set $script_loc ~/.config/scripts
 set $term   --no-startup-id st
-set $term_fwd --no-startup-id ~/.config/scripts/term_fwd
+set $term_fwd --no-startup-id $script_loc/term_fwd
 set $browser firefox
 focus_follows_mouse no
 
@@ -17,7 +18,7 @@ set $curr_paper T3NS_SU2
 set $paper_location ~/Documents/papers
 
 #Try to load extra screens initializes polybar and wallpaper 
-exec_always --no-startup-id ~/.config/scripts/initscreen.sh
+exec_always --no-startup-id $script_loc/initscreen.sh
 
 #Unclutter makes the mouse invisible after a brief period
 exec --no-startup-id unclutter
@@ -27,14 +28,14 @@ exec --no-startup-id xmodmap ~/.xmodmap
 exec --no-startup-id compton
 
 #RUNIT
-set $shutdown --no-startup-id ~/.config/scripts/shutdown.sh
+set $shutdown --no-startup-id $script_loc/shutdown.sh
 
 # #---Audio and Music Definitions---# #
-set $inc --no-startup-id ~/.config/scripts/volumecontrol.sh +2%
-set $biginc --no-startup-id ~/.config/scripts/volumecontrol.sh +5%
-set $dec --no-startup-id ~/.config/scripts/volumecontrol.sh -2%
-set $bigdec --no-startup-id ~/.config/scripts/volumecontrol.sh -5%
-set $mute --no-startup-id ~/.config/scripts/volumecontrol.sh mute
+set $inc --no-startup-id $script_loc/volumecontrol.sh +2%
+set $biginc --no-startup-id $script_loc/volumecontrol.sh +5%
+set $dec --no-startup-id $script_loc/volumecontrol.sh -2%
+set $bigdec --no-startup-id $script_loc/volumecontrol.sh -5%
+set $mute --no-startup-id $script_loc/volumecontrol.sh mute
 
 ##For spotify
 set $pause dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -56,9 +57,9 @@ bindsym $mod+space		focus mode_toggle
 # #---Letter Key Bindings---# #
 bindsym $mod+q			kill
 bindsym $mod+Shift+q		kill
-bindsym $mod+x 			exec --no-startup-id $HOME/.config/scripts/lock.sh
+bindsym $mod+x 			exec --no-startup-id $script_loc/lock.sh
 bindsym $mod+Shift+x 		exec $shutdown
-bindsym $mod+Shift+s 		exec --no-startup-id ~/.config/scripts/screendmenu.sh
+bindsym $mod+Shift+s 		exec --no-startup-id $script_loc/screendmenu.sh
 #bindsym $mod+BackSpace 		exec --no-startup-id i3-msg exit
 
 bindsym $mod+b			exec --no-startup-id $browser
@@ -67,10 +68,12 @@ bindsym $mod+s 			exec --no-startup-id spotify
 bindsym $mod+n 			exec --no-startup-id $term ranger
 bindsym $mod+Shift+n 		exec $term_fwd ranger
 bindsym $mod+d 			exec --no-startup-id dmenu_run -fn 'inconsolata-LGC:size=20'
-bindsym $mod+m 			exec --no-startup-id $term ~/.config/scripts/neomutt.sh
+bindsym $mod+m 			exec --no-startup-id $term $script_loc/neomutt.sh
 
 bindsym $mod+f			fullscreen toggle
 bindsym $mod+t 			split toggle
+bindsym $mod+p 			exec $term -e $script_loc/papisopen.sh 2> /tmp/err #Does not work properly because terminal shuts down after selecting of a paper and evince does not have the time to open.
+bindsym $mod+v 			exec $term -e ssh hpc
 
 # #---Arrow Keys---# #
 bindsym $mod+Left		focus left
@@ -122,7 +125,7 @@ bindsym XF86AudioPrev			exec $prev
 bindsym XF86AudioStop			exec $pause
 bindsym Pause 				exec $pause
 bindsym XF86Reload			restart
-bindsym XF86Suspend			exec --no-startup-id ~/.config/scripts/lock.sh
+bindsym XF86Suspend			exec --no-startup-id $script_loc/lock.sh
 bindsym XF86Close			kill
 bindsym XF86MonBrightnessDown		exec --no-startup-id xbacklight -dec 5
 bindsym XF86MonBrightnessUp		exec --no-startup-id xbacklight -inc 5
@@ -142,10 +145,10 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # Workspace for paper:
-bindsym $mod+p workspace 10; exec $term -e ~/.local/bin/otex $paper_location/$curr_paper
+bindsym $mod+Shift+p workspace 10; exec $term -e ~/.local/bin/otex $paper_location/$curr_paper
 
 # Workspace for vim learning:
-bindsym $mod+v workspace 9; exec $term -e vim; exec evince /home/kgunst/Documents/library/books/4da44b8e2d87889cdf0f483fbbf45aaa-unknown/learnvimscriptthehardway.pdf.pdf
+bindsym $mod+Shift+v workspace 9; exec $term -e vim; exec evince /home/kgunst/Documents/library/books/4da44b8e2d87889cdf0f483fbbf45aaa-unknown/learnvimscriptthehardway.pdf.pdf
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1

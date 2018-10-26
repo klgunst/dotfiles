@@ -1,5 +1,5 @@
-set tabstop=8
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set foldmethod=indent
+setlocal tabstop=8
+setlocal expandtab
+setlocal shiftwidth=2
+setlocal softtabstop=2
+setlocal foldmethod=indent
