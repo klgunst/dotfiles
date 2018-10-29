@@ -9,6 +9,11 @@ add-edit = True
 
 # picktool = vim
 
+
+# Whoosh database
+database-backend = whoosh
+whoosh-schema-fields = ['doi', 'ref']
+
 # Libraries
 [papers]
 dir = ~/Documents/library/papers
