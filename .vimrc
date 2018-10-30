@@ -109,6 +109,7 @@ noremap $ <nop>
 "<cr> is carriage return or Enter
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <buffer> <localleader>ev :exec('sp $HOME/.vim/ftplugin/' . &ft . '.vim')<cr>
 
 "alt key (is equal to escape key in terminal apparently) alt key is \e
 "remaps alt+] to right one

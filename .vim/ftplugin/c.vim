@@ -36,7 +36,6 @@ nnoremap <buffer> <localleader>while owhile () {<cr>}<esc>kf(a
 nnoremap <buffer> <localleader>pro oprintf();<esc>hi
 nnoremap <buffer> <localleader>pre ofprintf(stderr, );<esc>hi
 
-nnoremap <buffer> <localleader>ev :split $HOME/.vim/ftplugin/c.vim<cr>
 nnoremap <buffer> <localleader>oi :e %:p:h:h/include/%:t:r.h<cr>
 
 "Abbreviations

@@ -24,8 +24,7 @@ endif
 " Macros
 nnoremap <buffer> <localleader>eq o\begin{equation}<cr>\end{equation}<esc>O
 nnoremap <buffer> <localleader>al o\begin{align}<cr>\end{align}<esc>O
-nnoremap <buffer> <localleader>fig o\begin{figure}[!ht]<cr>\centering<cr>\includegraphics{}<cr>\caption{}<cr>\end{figure}<esc>/includegra<cr>f{a
-nnoremap <buffer> <localleader>ev :split $HOME/.vim/ftplugin/tex.vim<cr>
+nnoremap <buffer> <localleader>fig o\begin{figure}[!ht]<cr>\centering<cr>\includegraphics{}<cr>\caption{}<cr>\end{figure}<esc>?includegra<cr>f{a
 nnoremap <buffer> <localleader>pc :Papis<cr>
 nnoremap <buffer> <localleader>pv :PapisView<cr>
 
