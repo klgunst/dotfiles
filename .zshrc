@@ -69,11 +69,16 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export BROWSER="firefox"
+export VSC_SCRATCH=/user/home/gent/vsc412/vsc41288/scratch
+export VSC_DATA_VO_USER=/user/data/gent/gvo000/gvo00003/vsc41288
 
 #vi mode
 bindkey -v
 bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
+
+#zshell completion
+compdef _gnu_generic T3NS
 
 # Aliases moved to .oh-my-zsh/custom/aliases.zsh
 
