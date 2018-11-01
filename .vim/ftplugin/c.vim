@@ -2,18 +2,16 @@ setlocal expandtab
 setlocal shiftwidth=8
 setlocal softtabstop=8
 setlocal foldmethod=syntax
-setlocal foldnestmax=3
+"setlocal foldnestmax=3
 setlocal cindent
 setlocal nowrap
 setlocal path+=../include
 
-"inoremap <buffer> ( ()<Esc>:let leavechar=")"<CR>i
-"inoremap <buffer> [ []<Esc>:let leavechar="]"<CR>i
-"imap <buffer> <C-j> <Esc>:exec "normal f" . leavechar<CR>a
-"
-":vnoremap <buffer> _( <Esc>`>a)<Esc>`<i(<Esc>
-"
-"inoremap <buffer> { {<CR><BS>}<Esc>ko
+inoremap <buffer> ( ()<Esc>:let leavechar=")"<CR>i
+inoremap <buffer> [ []<Esc>:let leavechar="]"<CR>i
+imap <buffer> <C-j> <Esc>:exec "normal f" . leavechar<CR>a
+vnoremap <buffer> _( <Esc>`>a)<Esc>`<i(<Esc>
+inoremap <buffer> { {<CR><BS>}<Esc>ko
 
 "autocomment
 noremap <buffer> <localleader>c ^I//<esc>
@@ -36,7 +34,9 @@ nnoremap <buffer> <localleader>while owhile () {<cr>}<esc>kf(a
 nnoremap <buffer> <localleader>pro oprintf();<esc>hi
 nnoremap <buffer> <localleader>pre ofprintf(stderr, );<esc>hi
 
-nnoremap <buffer> <localleader>oi :e %:p:h:h/include/%:t:r.h<cr>
+nnoremap <buffer> <localleader>ei :e %:p:h:h/include/%:t:r.h<cr>
+nnoremap <buffer> <localleader>si :sp %:p:h:h/include/%:t:r.h<cr>
+
 
 "Abbreviations
 iabbrev <buffer> if NOPENOPENOPE
