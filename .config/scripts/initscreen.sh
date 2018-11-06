@@ -46,7 +46,7 @@ then
     primary=$(ask_screen)
     secondary=$(ask_screen)
     tertiary=$(ask_screen)
-    execute="xrandr --output $primary --primary --auto --output $secondary --auto --right-of $primary --output $tertiary --auto --left-of $primary"
+    execute="xrandr --output $primary --primary --auto --output $secondary --auto --right-of $primary --output $tertiary --auto --right-of $secondary"
 fi
 
 $execute

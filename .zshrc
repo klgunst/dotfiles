@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:$HOME/go/bin
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/kgunst/.oh-my-zsh
@@ -70,21 +69,22 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export BROWSER="firefox"
+export VSC_SCRATCH=/user/home/gent/vsc412/vsc41288/scratch
+export VSC_DATA_VO_USER=/user/data/gent/gvo000/gvo00003/vsc41288
+export OMP_NUM_THREADS=4
 
 #vi mode
 bindkey -v
 bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
 
-alias vi="vim "
-alias rcd='ranger --choosedir=/tmp/rcd; LASTDIR=`cat /tmp/rcd`; cd "$LASTDIR"'
-alias rm="rm -v "
-alias gpg="gpg2"
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+#zshell completion
+compdef _gnu_generic T3NS
+
+# Aliases moved to .oh-my-zsh/custom/aliases.zsh
 
 # for gpg-agent to ssh-agent
 export GPG_TTY=$(tty)
 
-# refresh gpg-agent tty in case user switches int an X session
+# refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye &>/dev/null
-[ -f ~/.gtrans.sh ] && source ~/.gtrans.sh

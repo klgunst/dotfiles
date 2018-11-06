@@ -12,6 +12,10 @@ set $term_fwd --no-startup-id ~/.config/scripts/term_fwd
 set $browser firefox
 focus_follows_mouse no
 
+# definition for a paper for me
+set $curr_paper T3NS_SU2
+set $paper_location ~/Documents/papers
+
 #Try to load extra screens initializes polybar and wallpaper 
 exec_always --no-startup-id ~/.config/scripts/initscreen.sh
 
@@ -52,7 +56,7 @@ bindsym $mod+space		focus mode_toggle
 # #---Letter Key Bindings---# #
 bindsym $mod+q			kill
 bindsym $mod+Shift+q		kill
-bindsym $mod+x 			exec --no-startup-id $HOME/.config/scripts/lock.sh
+bindsym $mod+x 			exec --no-startup-id ~/.config/scripts/lock.sh
 bindsym $mod+Shift+x 		exec $shutdown
 bindsym $mod+Shift+s 		exec --no-startup-id ~/.config/scripts/screendmenu.sh
 #bindsym $mod+BackSpace 		exec --no-startup-id i3-msg exit
@@ -67,6 +71,8 @@ bindsym $mod+m 			exec --no-startup-id $term ~/.config/scripts/neomutt.sh
 
 bindsym $mod+f			fullscreen toggle
 bindsym $mod+t 			split toggle
+bindsym $mod+p 			exec $term -e ~/.config/scripts/papisopen.sh 2> /tmp/err #Does not work properly because terminal shuts down after selecting of a paper and evince does not have the time to open.
+bindsym $mod+v 			exec $term -e ssh hpc
 
 # #---Arrow Keys---# #
 bindsym $mod+Left		focus left
@@ -136,6 +142,12 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+
+# Workspace for paper:
+bindsym $mod+Shift+p workspace 10; exec $term -e ~/.local/bin/otex $paper_location/$curr_paper
+
+# Workspace for vim learning:
+bindsym $mod+Shift+v workspace 9; exec $term -e vim; exec evince /home/kgunst/Documents/library/books/4da44b8e2d87889cdf0f483fbbf45aaa-unknown/learnvimscriptthehardway.pdf.pdf
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
