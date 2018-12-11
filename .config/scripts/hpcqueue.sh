@@ -12,7 +12,7 @@ fi
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye &>/dev/null
 
-outp=$(ssh hpc qstat)
+outp=$(ssh hpc qstat 2> /dev/null)
 if [ $? -eq 255 ]; then
     echo "Not connected"
     echo "" > tmpfil
