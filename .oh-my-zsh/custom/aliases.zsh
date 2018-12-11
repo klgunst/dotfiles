@@ -6,4 +6,4 @@ alias rm="rm -v "
 alias gpg="gpg2"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias paper="otex $HOME/Documents/papers/T3NS_SU2"
-alias ssh="export GPG_TTY=$(tty); gpg-connect-agent updatestartuptty /bye &>/dev/null; ssh"
+alias ssh=~/.config/scripts/startssh.sh

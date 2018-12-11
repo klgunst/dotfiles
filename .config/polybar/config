@@ -277,6 +277,7 @@ label =  %output%
 [module/hpc]
 type = custom/script
 exec = ~/.config/scripts/hpcqueue.sh
+click-right = ~/.config/scripts/hpcqueue.sh "queue"
 interval = 300
 format = <label>
 label =  %output%

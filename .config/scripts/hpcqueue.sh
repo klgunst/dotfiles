@@ -3,7 +3,8 @@
 tempfil="/tmp/hpcqueue"
 
 if [ "x$1" != "x" ]; then
-    cat "$tempfil"
+    bla=$(cat $tempfil)
+    DISPLAY=:0 notify-send "Queue" "$bla"
 fi
 
 # set tty to to terminal where script is run. ssh will prompt then for passphrase in correct terminal.
@@ -19,9 +20,9 @@ if [ $? -eq 255 ]; then
     exit 0
 fi
 
-outpform=$(echo "$outp" | sed '/Username\|--------/d' | awk '{print $2, $4, $5}' | column -t)
+outpform=$(echo "$outp" | sed '/Username\|--------/d' | awk '{print $5, $4, $2}' | column -t)
 echo "$outpform" > $tempfil
-nmbrQ=$(echo "$outpform" | awk '{print $3}' | grep Q | wc -l)
-nmbrR=$(echo "$outpform" | awk '{print $3}' | grep R | wc -l)
+nmbrQ=$(echo "$outpform" | awk '{print $1}' | grep Q | wc -l)
+nmbrR=$(echo "$outpform" | awk '{print $1}' | grep R | wc -l)
 
 echo "R:$nmbrR Q:$nmbrQ"

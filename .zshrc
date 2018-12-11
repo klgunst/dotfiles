@@ -81,6 +81,7 @@ bindkey '^n' down-line-or-beginning-search
 
 #zshell completion
 compdef _gnu_generic T3NS
+compdef _git config=git
 
 # Aliases moved to .oh-my-zsh/custom/aliases.zsh
 
