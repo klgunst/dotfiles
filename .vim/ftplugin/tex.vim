@@ -21,13 +21,20 @@ if empty(v:servername) && exists('*remote_startserver')
     call remote_startserver('VIM')
 endif
 
+"autocomment
+noremap <buffer> <localleader>c ^I%<esc>
+"should not be for operatormode
+ounmap <buffer> <localleader>c
+
 " Macros
 nnoremap <buffer> <localleader>eq o\begin{equation}<cr>\end{equation}<esc>O
 nnoremap <buffer> <localleader>al o\begin{align}<cr>\end{align}<esc>O
 nnoremap <buffer> <localleader>fig o\begin{figure}[!ht]<cr>\centering<cr>\includegraphics{}<cr>\caption{}<cr>\end{figure}<esc>?includegra<cr>f{a
 nnoremap <buffer> <localleader>pc :Papis<cr>
-nnoremap <buffer> <localleader>pv :PapisView<cr>
+nnoremap <buffer> <localleader>pV :PapisView<cr>
+nnoremap <buffer> <localleader>pv :PapisInfo<cr>
 
 "abbreviations
-iabbrev <buffer> equation NOPENOPENOPE
-iabbrev <buffer> align NOPENOPENOPE
+iabbrev <buffer> coordinaten coördinaten
+iabbrev <buffer> coordinaat coördinaat
+iabbrev <buffer> potentiele potentiële

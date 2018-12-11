@@ -26,6 +26,7 @@ exec --no-startup-id xmodmap ~/.xmodmap
 #for making transparent
 exec --no-startup-id compton
 
+bindsym $mod+z		exec /tmp/hpcqueue.sh
 #RUNIT
 set $shutdown --no-startup-id ~/.config/scripts/shutdown.sh
 
