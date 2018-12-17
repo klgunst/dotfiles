@@ -11,7 +11,6 @@ inoremap <buffer> ( ()<Esc>:let leavechar=")"<CR>i
 inoremap <buffer> <tt> <tt></tt><Esc>:let leavechar=">"<CR>4hi
 inoremap <buffer> [ []<Esc>:let leavechar="]"<CR>i
 imap <buffer> <C-j> <Esc>:exec "normal f" . leavechar<CR>a
-vnoremap <buffer> _( <Esc>`>a)<Esc>`<i(<Esc>
 inoremap <buffer> { {<CR><BS>}<Esc>O
 
 "autocomment

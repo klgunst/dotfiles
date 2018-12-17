@@ -68,6 +68,7 @@ bindsym $mod+n 			exec --no-startup-id $term ranger
 bindsym $mod+Shift+n 		exec $term_fwd ranger
 bindsym $mod+d 			exec --no-startup-id dmenu_run -fn 'inconsolata-LGC:size=20'
 bindsym $mod+m 			exec --no-startup-id $term ~/.config/scripts/neomutt.sh
+bindsym $mod+a 			exec --no-startup-id $term ~/.config/scripts/editnote.sh
 
 bindsym $mod+f			fullscreen toggle
 bindsym $mod+t 			split toggle

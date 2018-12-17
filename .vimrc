@@ -100,6 +100,7 @@ noremap H ^
 onoremap p i(
 onoremap in( :<c-u>execute "normal! /(\rvi("<cr>
 onoremap il( :<c-u>execute "normal! ?)\rvi("<cr>
+vnoremap <buffer> _( <Esc>`>a)<Esc>`<i(<Esc>
 
 " forget old mappings can be deleted once used to L and H
 noremap ^ <nop>
