@@ -34,7 +34,15 @@ nnoremap <buffer> <localleader>pc :Papis<cr>
 nnoremap <buffer> <localleader>pV :PapisView<cr>
 nnoremap <buffer> <localleader>pv :PapisInfo<cr>
 
+" References
+nnoremap <buffer> <localleader>rf ifig.~\ref{fig:}<Esc>:let leavechar="}"<CR>i
+nnoremap <buffer> <localleader>rq ieq.~\ref{eq:}<Esc>:let leavechar="}"<CR>i
+nnoremap <buffer> <localleader>rt itable~\ref{tab:}<Esc>:let leavechar="}"<CR>i
+nnoremap <buffer> <localleader>rs isection~\ref{sec:}<Esc>:let leavechar="}"<CR>i
+inoremap <buffer> <C-j> <Esc>:exec "normal f" . leavechar<CR>a
+
 "abbreviations
 iabbrev <buffer> coordinaten coördinaten
 iabbrev <buffer> coordinaat coördinaat
 iabbrev <buffer> potentiele potentiële
+iabbrev <buffer> \ref{ NONONONO

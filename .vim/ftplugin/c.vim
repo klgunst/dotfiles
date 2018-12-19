@@ -10,7 +10,7 @@ setlocal path+=../include,../src
 inoremap <buffer> ( ()<Esc>:let leavechar=")"<CR>i
 inoremap <buffer> <tt> <tt></tt><Esc>:let leavechar=">"<CR>4hi
 inoremap <buffer> [ []<Esc>:let leavechar="]"<CR>i
-imap <buffer> <C-j> <Esc>:exec "normal f" . leavechar<CR>a
+inoremap <buffer> <C-j> <Esc>:exec "normal f" . leavechar<CR>a
 inoremap <buffer> { {<CR><BS>}<Esc>O
 
 "autocomment

@@ -1,10 +1,5 @@
 #!/bin/bash
 
-WALLPAPERPATH="$HOME/Wallpapers"
-DEFAULT="default"
-NOTE="$HOME/.note.txt"
-connected=$1
-
 select_wallpaper(){
     # selects resolution, awk selects third word, sed removes the offset in xrandr
     res=$(cat /tmp/screeninfo | grep $1 | grep -o '[0-9]\+x[0-9]\+')
@@ -15,7 +10,7 @@ select_wallpaper(){
     fi
 
     # select a randomized wallpaper and resize it to the correct resolution
-    convert $(find -L $WALLPAPERPATH/$res -type f | shuf -n 1) -resize $res^ -gravity center -crop $res $2
+    convert $(find -L $WALLPAPERPATH/$res -type f | shuf -n 1) -gravity center -resize $res^ -crop $res+0+0 +repage $2
     echo $2
 }
 
@@ -27,8 +22,13 @@ add_note(){
 	-stroke black -strokewidth 2 -pointsize $ptsize -annotate 0 "$message" \
 	-background none -shadow 100x1+0+0 +repage \
 	-stroke none -fill white -pointsize $ptsize -annotate 0 "$message" \
-	$wallpaper +swap -gravity NorthWest -geometry +100+100 -composite $2 
+	$wallpaper +swap -gravity NorthWest -geometry +50+50 -composite $2 
 }
+
+WALLPAPERPATH="$HOME/Wallpapers"
+DEFAULT="default"
+NOTE="$HOME/.note.txt"
+connected=$1
 
 #now for the wallpapers
 xrandr -q | grep " connected" > /tmp/screeninfo
@@ -48,6 +48,6 @@ if [ $connected -ge 3 ]
 then
     select_wallpaper $2 /tmp/oldprimary.jpg
     add_note /tmp/oldprimary.jpg /tmp/primary.jpg
-    fehcommand="feh --bg-fill /tmp/primary.jpg $(select_wallpaper $3 /tmp/secondary.jpg) $(select_wallpaper /tmp/tertiary.jpg)"
+    fehcommand="feh --bg-fill /tmp/primary.jpg $(select_wallpaper $3 /tmp/secondary.jpg) $(select_wallpaper $4 /tmp/tertiary.jpg)"
 fi
 $fehcommand
