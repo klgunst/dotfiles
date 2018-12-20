@@ -12,7 +12,7 @@ add-edit = True
 
 # Whoosh database
 database-backend = whoosh
-whoosh-schema-fields = ['doi', 'ref']
+whoosh-schema-fields = ['ref']
 
 # Libraries
 [papers]

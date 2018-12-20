@@ -71,6 +71,7 @@ export VISUAL=/usr/bin/vim
 export BROWSER="firefox"
 export VSC_SCRATCH=/user/home/gent/vsc412/vsc41288/scratch
 export VSC_DATA_VO_USER=/user/data/gent/gvo000/gvo00003/vsc41288
+export VSC_SCRATCH_VO_USER=/user/scratch/gent/gvo000/gvo00003/vsc41288
 export OMP_NUM_THREADS=4
 
 #vi mode
@@ -80,6 +81,7 @@ bindkey '^n' down-line-or-beginning-search
 
 #zshell completion
 compdef _gnu_generic T3NS
+compdef _git config=git
 
 # Aliases moved to .oh-my-zsh/custom/aliases.zsh
 
@@ -88,3 +90,7 @@ export GPG_TTY=$(tty)
 
 # refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye &>/dev/null
+
+# MKL
+#source /opt/intel/mkl/bin/mklvars.sh intel64
+source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh intel64
