@@ -34,6 +34,14 @@ nnoremap <buffer> <localleader>pc :Papis<cr>
 nnoremap <buffer> <localleader>pV :PapisView<cr>
 nnoremap <buffer> <localleader>pv :PapisInfo<cr>
 
+nnoremap <buffer> <localleader>ns /section{<cr>
+nnoremap <buffer> <localleader>nS /\\section{<cr>
+nnoremap <buffer> <localleader>Ns ?section{<cr>
+nnoremap <buffer> <localleader>NS ?\\section{<cr>
+
+nnoremap <buffer> <localleader>nf /begin{figure<cr>
+nnoremap <buffer> <localleader>Nf ?begin{figure<cr>
+
 " References
 nnoremap <buffer> <localleader>rf ifig.~\ref{fig:}<Esc>:let leavechar="}"<CR>i
 nnoremap <buffer> <localleader>rq ieq.~\ref{eq:}<Esc>:let leavechar="}"<CR>i

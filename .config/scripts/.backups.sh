@@ -28,13 +28,22 @@ xbps-query -m > $HOME/.manually_installed_packages-$(hostname)
 ls /var/service > $HOME/.services_activated-$(hostname)
 
 #local backup
+echo "Local Backup..."
 $HOME/.config/scripts/.localbackup.sh > $HOME/.lastbackup
+tail -n 16 $(ls -t /tmp/backup-* | head -n 1)
 
 #backup on a server
+echo "Remote Backup..."
 $HOME/.config/scripts/.remotebackup.sh >> $HOME/.lastbackup
+tail -n 16 $(ls -t /tmp/backup-* | head -n 1)
+
+
 
 if grep -q 'quota' $HOME/.lastbackup; then
     date +"%d %b @ %R (!)" >> $HOME/.lastbackup
 else
     date +"%d %b @ %R" >> $HOME/.lastbackup
 fi
+
+read -p "Finished. Press any key to close."
+exit 0
