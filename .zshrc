@@ -93,4 +93,4 @@ gpg-connect-agent updatestartuptty /bye &>/dev/null
 
 # MKL
 #source /opt/intel/mkl/bin/mklvars.sh intel64
-source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh intel64
+#source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh intel64
