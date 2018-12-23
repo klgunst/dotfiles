@@ -1,16 +1,23 @@
 #!/bin/bash
 
+WALLPAPERPATH="$HOME/Wallpapers"
+DEFAULT="default"
+NOTE="$HOME/.note.txt"
+connected=$1
+
 select_wallpaper(){
     # selects resolution, awk selects third word, sed removes the offset in xrandr
     res=$(cat /tmp/screeninfo | grep $1 | grep -o '[0-9]\+x[0-9]\+')
     #or no directory with that resolution is found or the directory is empty
     if [ $(ls "$WALLPAPERPATH/$res" 2> /dev/null | wc -l | sed 's/ .*//') -eq 0 ]
     then
-	res=$DEFAULT
+	wallp_path=$WALLPAPERPATH/$DEFAULT
+    else
+	wallp_path=$WALLPAPERPATH/$res
     fi
 
     # select a randomized wallpaper and resize it to the correct resolution
-    convert $(find -L $WALLPAPERPATH/$res -type f | shuf -n 1) -gravity center -resize $res^ -crop $res+0+0 +repage $2
+    convert $(find -L $wallp_path -type f | shuf -n 1) -gravity center -resize $res^ -crop $res+0+0 +repage $2
     echo $2
 }
 
@@ -24,11 +31,6 @@ add_note(){
 	-stroke none -fill white -pointsize $ptsize -annotate 0 "$message" \
 	$wallpaper +swap -gravity NorthWest -geometry +50+50 -composite $2 
 }
-
-WALLPAPERPATH="$HOME/Wallpapers"
-DEFAULT="default"
-NOTE="$HOME/.note.txt"
-connected=$1
 
 #now for the wallpapers
 xrandr -q | grep " connected" > /tmp/screeninfo
