@@ -13,15 +13,15 @@ fi
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye &>/dev/null
 
-outp=$(ssh hpc qstat 2> /dev/null)
+outp=$(ssh hpc "qstat; module swap cluster/skitty &> /dev/null; qstat""" 2> /dev/null)
 if [ $? -eq 255 ]; then
     echo "Not connected"
     echo "" > $tmpfil
     exit 0
 fi
 
-outpform=$(echo "$outp" | sed '/Username\|--------/d' | awk '{print $5, $4, $2}' | column -t)
-echo "$outpform" > $tempfil
+outpform=$(echo "$outp" | sed '/Username\|--------/d' | awk '{print $5, $4, $6, $2}' | column -t)
+echo -e "$outpform" > $tempfil
 nmbrQ=$(echo "$outpform" | awk '{print $1}' | grep Q | wc -l)
 nmbrR=$(echo "$outpform" | awk '{print $1}' | grep R | wc -l)
 
