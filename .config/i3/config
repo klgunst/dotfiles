@@ -61,7 +61,8 @@ bindsym $mod+Shift+x 		exec $shutdown
 bindsym $mod+Shift+s 		exec --no-startup-id ~/.config/scripts/screendmenu.sh
 #bindsym $mod+BackSpace 		exec --no-startup-id i3-msg exit
 
-bindsym $mod+b			exec --no-startup-id $browser
+bindsym $mod+Shift+b		exec --no-startup-id $browser
+bindsym $mod+b 			exec --no-startup-id st -e ~/.config/scripts/duckys.sh
 bindsym $mod+s 			exec --no-startup-id spotify
 #bindsym $mod+Shift+n 		exec --no-startup-id Thunar
 bindsym $mod+n 			exec --no-startup-id $term nnn

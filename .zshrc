@@ -68,7 +68,6 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
-export BROWSER="firefox"
 export VSC_SCRATCH=/user/home/gent/vsc412/vsc41288/scratch
 export VSC_DATA_VO_USER=/user/data/gent/gvo000/gvo00003/vsc41288
 export VSC_SCRATCH_VO_USER=/user/scratch/gent/gvo000/gvo00003/vsc41288
