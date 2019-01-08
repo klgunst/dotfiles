@@ -3,7 +3,6 @@
 from pydbus import SessionBus
 from gi.repository import GLib
 
-print("bla")
 bus = SessionBus()
 # first in this list is the default
 busnames = ["org.mpris.MediaPlayer2.Goodvibes", "org.mpris.MediaPlayer2.spotify"]
@@ -77,16 +76,13 @@ if __name__ == '__main__':
             bus_add(idx, name)
     except:
         pass
-
+    
     if sys.argv[1] == 'watch':
         bus.watch_name(busnames[0], name_appeared=lambda name:bus_add(0, name), 
                 name_vanished=lambda:bus_remove(0))
         bus.watch_name(busnames[1], name_appeared=lambda name:bus_add(1, name), 
                 name_vanished=lambda:bus_remove(1))
         GLib.MainLoop().run()
-    if sys.argv[1] == 'info'
-        print("bla")
-
     elif multiplaying(): 
         # if cacophony pause irrelevant from command
         bus_obj[0].Pause()

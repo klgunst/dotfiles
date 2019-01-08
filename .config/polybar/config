@@ -285,10 +285,9 @@ format-underline = ${xrdb:color15}
 
 [module/music]
 type = custom/script
-exec = ~/.config/scripts/music_dbus.py "watch"&
-;exec = ~/.config/scripts/spotify_dbus.py
+exec = ~/.config/scripts/music_dbus.py watch
 tail = true
-;format = <label>
+format = <label>
 label = %output%
 
 [settings]
