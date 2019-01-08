@@ -45,7 +45,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = Siji:pixelsize=30;1
 
 modules-left = i3
-modules-center = spotify
+modules-center = music
 modules-right = cpu memory battery wlan eth volume lastbackup date
 
 tray-position = right
@@ -283,11 +283,12 @@ format = <label>
 label =  %output%
 format-underline = ${xrdb:color15}
 
-[module/spotify]
+[module/music]
 type = custom/script
-exec = ~/.config/scripts/spotify_dbus.py 2> /dev/null
-interval = 2
-format = <label>
+exec = ~/.config/scripts/music_dbus.py "watch"&
+;exec = ~/.config/scripts/spotify_dbus.py
+tail = true
+;format = <label>
 label = %output%
 
 [settings]

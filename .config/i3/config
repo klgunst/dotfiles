@@ -37,11 +37,11 @@ set $bigdec --no-startup-id ~/.config/scripts/volumecontrol.sh -5%
 set $mute --no-startup-id ~/.config/scripts/volumecontrol.sh mute
 
 ##For spotify
-set $pause dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-set $trupause dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause
-set $play dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play
-set $next dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-set $prev dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+set $pause --no-startup-id ~/.config/scripts/music_dbus.py PlayPause
+set $trupause --no-startup-id ~/.config/scripts/music_dbus.py Pause 
+set $play --no-startup-id ~/.config/scripts/music_dbus.py Play
+set $next --no-startup-id ~/.config/scripts/music_dbus.py Next
+set $prev --no-startup-id ~/.config/scripts/music_dbus.py Previous
 
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec $term
@@ -118,11 +118,11 @@ bindsym XF86PowerOff			exec $shutdown
 bindsym XF86Calculator			exec $term -e python3
 bindsym XF86Sleep			exec sudo zzz
 bindsym XF86Explorer			exec $term -e ranger
-bindsym XF86ScreenSaver			exec exec --no-startup-id ~/.config/i3/lock.sh
+bindsym XF86ScreenSaver			exec --no-startup-id ~/.config/scripts/lock.sh
 bindsym XF86AudioNext			exec $next
 bindsym XF86AudioPlay			exec $pause
 bindsym XF86AudioPrev			exec $prev
-bindsym XF86AudioStop			exec $pause
+bindsym XF86AudioStop			exec $trupause
 bindsym Pause 				exec $pause
 bindsym XF86Reload			restart
 bindsym XF86Suspend			exec --no-startup-id ~/.config/scripts/lock.sh
