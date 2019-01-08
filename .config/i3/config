@@ -64,8 +64,8 @@ bindsym $mod+Shift+s 		exec --no-startup-id ~/.config/scripts/screendmenu.sh
 bindsym $mod+b			exec --no-startup-id $browser
 bindsym $mod+s 			exec --no-startup-id spotify
 #bindsym $mod+Shift+n 		exec --no-startup-id Thunar
-bindsym $mod+n 			exec --no-startup-id $term ranger
-bindsym $mod+Shift+n 		exec $term_fwd ranger
+bindsym $mod+n 			exec --no-startup-id $term nnn
+bindsym $mod+Shift+n 		exec $term_fwd nnn
 bindsym $mod+d 			exec --no-startup-id dmenu_run -fn 'inconsolata-LGC:size=20'
 bindsym $mod+m 			exec --no-startup-id $term ~/.config/scripts/neomutt.sh
 bindsym $mod+a 			exec --no-startup-id $term ~/.config/scripts/editnote.sh
@@ -117,13 +117,15 @@ bindsym XF86AudioLowerVolume		exec $dec
 bindsym XF86PowerOff			exec $shutdown
 bindsym XF86Calculator			exec $term -e python3
 bindsym XF86Sleep			exec sudo zzz
-bindsym XF86Explorer			exec $term -e ranger
+bindsym XF86Explorer			exec $term nnn
 bindsym XF86ScreenSaver			exec --no-startup-id ~/.config/scripts/lock.sh
 bindsym XF86AudioNext			exec $next
 bindsym XF86AudioPlay			exec $pause
 bindsym XF86AudioPrev			exec $prev
 bindsym XF86AudioStop			exec $trupause
 bindsym Pause 				exec $pause
+bindsym $mod+Next 			exec $next
+bindsym $mod+Prior 			exec $prev
 bindsym XF86Reload			restart
 bindsym XF86Suspend			exec --no-startup-id ~/.config/scripts/lock.sh
 bindsym XF86Close			kill

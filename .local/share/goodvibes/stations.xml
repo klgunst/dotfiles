@@ -7,4 +7,16 @@
     <uri>http://live-mp3-128.kexp.org/kexp128.mp3</uri>
     <name>KEXP</name>
   </Station>
+  <Station>
+    <uri>http://icecast.vrtcdn.be/stubru-high.mp3</uri>
+    <name>StuBru</name>
+  </Station>
+  <Station>
+    <uri>http://progressive-audio.lwc.vrtcdn.be/content/fixed/11_11niws-snip_hi.mp3</uri>
+    <name>VRTNWS</name>
+  </Station>
+  <Station>
+    <uri>http://icecast.vrtcdn.be/klaracontinuo-high.mp3</uri>
+    <name>Klara Continuo</name>
+  </Station>
 </Stations>

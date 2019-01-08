@@ -24,9 +24,10 @@ then
     done
 fi
 
-# pause spotify
-dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
-    org.mpris.MediaPlayer2.Player.Pause
+# Get Playing music
+playingid=$(./music_dbus.py isplaying)
+#Pause music
+./music_dbus.py Pause
 
 # muting all the rest
 amixer sset Master toggle
@@ -35,5 +36,7 @@ i3lock -n -u -e -i /tmp/screen.png
 # unmuting all the rest
 amixer sset Master toggle
 # play spotify
-dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
-    org.mpris.MediaPlayer2.Player.Play
+echo $playingid
+if [ -n "$playingid" ]; then
+    ./music_dbus.py Play $playingid
+fi
