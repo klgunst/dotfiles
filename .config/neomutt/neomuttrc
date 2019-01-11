@@ -31,7 +31,7 @@ set sort_re
 # for your viewing pleasure
 set mailcap_path ="~/.config/neomutt/mailcap"
 auto_view text/html
-alternative_order text/plain text/html
+alternative_order text/plain text/enriched text/html
 
 ## shortcuts
 source ~/.config/neomutt/shortcutmuttrc

@@ -9,7 +9,7 @@ font inconsolata-LGC 10
 set $mod Mod1
 set $term   --no-startup-id st
 set $term_fwd --no-startup-id ~/.config/scripts/term_fwd
-set $browser firefox
+set $browser qutebrowser
 focus_follows_mouse no
 
 # definition for a paper for me
@@ -62,7 +62,7 @@ bindsym $mod+Shift+s 		exec --no-startup-id ~/.config/scripts/screendmenu.sh
 #bindsym $mod+BackSpace 		exec --no-startup-id i3-msg exit
 
 bindsym $mod+Shift+b		exec --no-startup-id $browser
-bindsym $mod+b 			exec --no-startup-id st -e ~/.config/scripts/duckys.sh
+bindsym $mod+b 			exec --no-startup-id ~/.config/scripts/duckycal.sh
 bindsym $mod+s 			exec --no-startup-id spotify
 #bindsym $mod+Shift+n 		exec --no-startup-id Thunar
 bindsym $mod+n 			exec --no-startup-id $term nnn
@@ -220,3 +220,4 @@ client.urgent               $rd        $rd         $tx
 # For floating window where for backup scripts
 for_window [title="backups.sh"] floating enable
 for_window [title="sync.sh"] floating enable
+for_window [title="duckys.sh"] floating enable

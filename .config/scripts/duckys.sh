@@ -45,11 +45,8 @@ fi
 if [ "${query::1}" == "!" ]; then
     ddgr --np $query
 elif [ "${query::4}" == "www." ]; then
-    if [ -z "$(pgrep firefox)" ]; then
-	nohup $BROWSER &> /dev/null&
-	sleep 6
-    fi
     $BROWSER $query
 else
-    ddgr --gb $query
+    ddgr $query
 fi
+exit 0
