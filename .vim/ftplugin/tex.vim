@@ -34,13 +34,13 @@ nnoremap <buffer> <localleader>pc :Papis<cr>
 nnoremap <buffer> <localleader>pV :PapisView<cr>
 nnoremap <buffer> <localleader>pv :PapisInfo<cr>
 
-nnoremap <buffer> <localleader>ns /section{<cr>
-nnoremap <buffer> <localleader>nS /\\section{<cr>
-nnoremap <buffer> <localleader>Ns ?section{<cr>
-nnoremap <buffer> <localleader>NS ?\\section{<cr>
+noremap <buffer> <localleader>ns /section\*\{0,1\}{<cr>
+noremap <buffer> <localleader>nS /\\section\*\{0,1\}{<cr>
+noremap <buffer> <localleader>Ns ?section\*\{0,1\}{<cr>
+noremap <buffer> <localleader>NS ?\\section\*\{0,1\}{<cr>
 
-nnoremap <buffer> <localleader>nf /begin{figure<cr>
-nnoremap <buffer> <localleader>Nf ?begin{figure<cr>
+noremap <buffer> <localleader>nf /begin{figure<cr>
+noremap <buffer> <localleader>Nf ?begin{figure<cr>
 
 " References
 nnoremap <buffer> <localleader>rf ifig.~\ref{fig:}<Esc>:let leavechar="}"<CR>i

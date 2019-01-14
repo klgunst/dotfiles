@@ -12,6 +12,6 @@ add_note(){
 	$wallpaper +swap -gravity NorthWest -geometry +50+50 -composite $2 
 }
 
-vim $NOTE
+st vim $NOTE
 add_note /tmp/oldprimary.jpg /tmp/primary.jpg
 feh --bg-fill /tmp/primary.jpg /tmp/secondary.jpg /tmp/tertiary.jpg 2> /dev/null

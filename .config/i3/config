@@ -69,11 +69,11 @@ bindsym $mod+n 			exec --no-startup-id $term nnn
 bindsym $mod+Shift+n 		exec $term_fwd nnn
 bindsym $mod+d 			exec --no-startup-id dmenu_run -fn 'inconsolata-LGC:size=20'
 bindsym $mod+m 			exec --no-startup-id $term ~/.config/scripts/neomutt.sh
-bindsym $mod+a 			exec --no-startup-id $term ~/.config/scripts/editnote.sh
+bindsym $mod+a 			exec --no-startup-id ~/.config/scripts/editnote.sh
 
 bindsym $mod+f			fullscreen toggle
 bindsym $mod+t 			split toggle
-bindsym $mod+p 			exec $term -e ~/.config/scripts/papisopen.sh 2> /tmp/err #Does not work properly because terminal shuts down after selecting of a paper and evince does not have the time to open.
+bindsym $mod+p 			exec $term ~/.config/scripts/papisopen.sh
 bindsym $mod+v 			exec $term -e ~/.config/scripts/startssh.sh hpc
 
 # #---Arrow Keys---# #
