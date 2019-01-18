@@ -54,3 +54,8 @@ iabbrev <buffer> coordinaten coördinaten
 iabbrev <buffer> coordinaat coördinaat
 iabbrev <buffer> potentiele potentiële
 iabbrev <buffer> \ref{ NONONONO
+
+inoremap <buffer> ( ()<Esc>:let leavechar=")"<CR>i
+inoremap <buffer> { {}<Esc>:let leavechar="}"<CR>i
+inoremap <buffer> [ []<Esc>:let leavechar="]"<CR>i
+inoremap <buffer> $ $$<Esc>:let leavechar="$"<CR>i
