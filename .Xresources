@@ -1,7 +1,9 @@
 *foreground: #ebdbb2
 *foreground_bold: #a8a19f
 *cursor: #a8a19f
-*background:       #282828
+*background: #282828
+Xcursor.size: 64
+Xcursor.theme: Obsidian
 
 !! black
 *color0: #1b1918

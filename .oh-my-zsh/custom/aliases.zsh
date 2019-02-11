@@ -7,3 +7,5 @@ alias gpg="gpg2"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias paper="otex $HOME/Documents/papers/T3NS_SU2"
 alias ssh=~/.config/scripts/startssh.sh
+alias po="papis open "
+alias pbo="papis -l books open "

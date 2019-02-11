@@ -34,8 +34,9 @@ tail -n 16 $(ls -t /tmp/backup-* | head -n 1)
 
 #backup on a server
 echo "Remote Backup..."
-$HOME/.config/scripts/.remotebackup.sh >> $HOME/.lastbackup
-tail -n 16 $(ls -t /tmp/backup-* | head -n 1)
+echo "Not doing this, should addapt te exclude file..."
+#$HOME/.config/scripts/.remotebackup.sh >> $HOME/.lastbackup
+#tail -n 16 $(ls -t /tmp/backup-* | head -n 1)
 
 
 

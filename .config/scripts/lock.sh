@@ -39,7 +39,6 @@ i3lock -n -u -e -i /tmp/screen.png
 
 # unmuting all the rest
 $HOME/.config/scripts/volumecontrol.sh mute
-# play spotify
-if [ -n "$playingid" ]; then
-    $HOME/.config/scripts/music_dbus.py Play $playingid
-fi
+#if [ -n "$playingid" ]; then
+#    $HOME/.config/scripts/music_dbus.py Play $playingid
+#fi

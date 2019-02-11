@@ -1,20 +1,22 @@
-# vim: filetype=i3
+# font
+font inconsolata-LGC 10
 
-# #---Basic Definitions---# #
-#Needed for i3-gaps
+# Some definitions
+set $mod Mod1
+set $term --no-startup-id st
+set $term_fwd --no-startup-id ~/.config/scripts/term_fwd
+set $fmanager lf
+set $browser qutebrowser
+set $curr_paper T3NS_SU2
+set $paper_location ~/Documents/papers
+set $shutdown --no-startup-id ~/.config/scripts/shutdown.sh
+
+## Gaps
 for_window [class="^.*"] border pixel 3
 gaps outer 0
 gaps inner 4
-font inconsolata-LGC 10
-set $mod Mod1
-set $term   --no-startup-id st
-set $term_fwd --no-startup-id ~/.config/scripts/term_fwd
-set $browser qutebrowser
-focus_follows_mouse no
 
-# definition for a paper for me
-set $curr_paper T3NS_SU2
-set $paper_location ~/Documents/papers
+focus_follows_mouse no
 
 #Try to load extra screens initializes polybar and wallpaper 
 exec_always --no-startup-id ~/.config/scripts/initscreen.sh
@@ -25,9 +27,6 @@ exec --no-startup-id unclutter
 exec --no-startup-id xmodmap ~/.xmodmap
 #for making transparent
 exec --no-startup-id compton
-
-#RUNIT
-set $shutdown --no-startup-id ~/.config/scripts/shutdown.sh
 
 # #---Audio and Music Definitions---# #
 set $inc --no-startup-id ~/.config/scripts/volumecontrol.sh +2%
@@ -43,37 +42,32 @@ set $play --no-startup-id ~/.config/scripts/music_dbus.py Play
 set $next --no-startup-id ~/.config/scripts/music_dbus.py Next
 set $prev --no-startup-id ~/.config/scripts/music_dbus.py Previous
 
+# kill focused window
+bindsym $mod+q 			kill
+
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec $term
 bindsym $mod+Shift+Return	exec $term_fwd
 
 bindsym $mod+Shift+space 	floating toggle
 bindsym $mod+space		focus mode_toggle
-#
-#bindsym $mod+Escape		workspace prev
-#bindsym $mod+Shift+Escape 	exec i3-msg exit
 
 # #---Letter Key Bindings---# #
-bindsym $mod+q			kill
-bindsym $mod+Shift+q		kill
 bindsym $mod+x 			exec --no-startup-id ~/.config/scripts/lock.sh
 bindsym $mod+Shift+x 		exec $shutdown
 bindsym $mod+Shift+s 		exec --no-startup-id ~/.config/scripts/screendmenu.sh
-#bindsym $mod+BackSpace 		exec --no-startup-id i3-msg exit
 
 bindsym $mod+Shift+b		exec --no-startup-id $browser
 bindsym $mod+b 			exec --no-startup-id ~/.config/scripts/duckycal.sh
 bindsym $mod+s 			exec --no-startup-id spotify
-#bindsym $mod+Shift+n 		exec --no-startup-id Thunar
-bindsym $mod+n 			exec --no-startup-id $term nnn
-bindsym $mod+Shift+n 		exec $term_fwd nnn
+bindsym $mod+n 			exec --no-startup-id $term -e $fmanager 
+bindsym $mod+Shift+n 		exec --no-startup-id $term_fwd $fmanager
 bindsym $mod+d 			exec --no-startup-id dmenu_run -fn 'inconsolata-LGC:size=20'
 bindsym $mod+m 			exec --no-startup-id $term ~/.config/scripts/neomutt.sh
 bindsym $mod+a 			exec --no-startup-id ~/.config/scripts/editnote.sh
 
 bindsym $mod+f			fullscreen toggle
 bindsym $mod+t 			split toggle
-bindsym $mod+p 			exec $term ~/.config/scripts/papisopen.sh
 bindsym $mod+v 			exec $term -e ~/.config/scripts/startssh.sh hpc
 
 # #---Arrow Keys---# #
@@ -118,7 +112,7 @@ bindsym XF86AudioLowerVolume		exec $dec
 bindsym XF86PowerOff			exec $shutdown
 bindsym XF86Calculator			exec $term -e python3
 bindsym XF86Sleep			exec sudo zzz
-bindsym XF86Explorer			exec $term nnn
+bindsym XF86Explorer			exec $term -e $fmanager
 bindsym XF86ScreenSaver			exec --no-startup-id ~/.config/scripts/lock.sh
 bindsym XF86AudioNext			exec $next
 bindsym XF86AudioPlay			exec $pause
@@ -194,9 +188,10 @@ mode "resize" {
         bindsym Up resize shrink height 1 px or 1 ppt
         bindsym Right resize grow width 1 px or 1 ppt
 
-        # back to normal: Enter or Escape
+        # back to normal: Enter or Escape or Mod1+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
+        bindsym Mod1+r mode "default"
 }
 bindsym $mod+r mode "resize"
 

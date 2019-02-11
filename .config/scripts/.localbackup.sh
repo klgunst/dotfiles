@@ -6,7 +6,12 @@ NUMBACKUPS=31
 
 # Where should I put my backups? Login to the moldyn58 and run the quota command to
 # see where you quota is allocated.
-WHEREBACKUPS=$HOME/.Backups
+WHEREBACKUPS=/run/media/$USER/b4266e4b-ba22-4117-a744-cfed0b1a6816/Backups
+ls $WHEREBACKUPS &> /dev/null
+if [ $? -ne 0 ]; then
+    echo "External drive not mounted."
+    exit 1
+fi
 
 # Put this cron in a cronjob to run it automatically. Use the command "crontab -e" for this
 # To run daily at 17h00, add: 17 * * * * /path/to/script
@@ -50,7 +55,7 @@ fi
 if [ -d backup.${NUMBACKUPS} ]; then
     mv backup.${NUMBACKUPS} backup.old
     # give write permission needed to delete the directory
-    find backup.old -type d -not -perm -u+w -print0 | xargs -0 chmod u+w
+    #find backup.old -type d -not -perm -u+w -print0 | xargs -0 chmod u+w
     rm -rf backup.old
 fi
 
@@ -68,3 +73,5 @@ mv backup.cur backup.0
 tail -n 100 latest-backup.txt > .tmp
 echo $(date) >> .tmp
 mv .tmp latest-backup.txt
+
+exit 0

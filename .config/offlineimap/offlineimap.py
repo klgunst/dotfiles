@@ -2,7 +2,7 @@
 from subprocess import check_output
 
 def get_ugentpass():
-        return check_output("gpg2 -dq ~/.config/offlineimap/ugent.gpg", shell=True).strip("\n")
+        return check_output("pass Work/UGent", shell=True).strip("\n")
 
 def get_hotmailpass():
-        return check_output("gpg2 -dq ~/.config/offlineimap/hotmail.gpg", shell=True).strip("\n")
+        return check_output("pass Email/hotmail | grep App-password | sed 's/App-password=//'", shell=True).strip("\n")

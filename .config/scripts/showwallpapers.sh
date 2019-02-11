@@ -24,7 +24,7 @@ select_wallpaper(){
 add_note(){
     wallpaper=$1
     ptsize=30
-    message=$(cat $NOTE)
+    message=$(sed '/^[ ]*%/d' $NOTE)
     convert -size 800x400 xc:none -gravity NorthWest \
 	-stroke black -strokewidth 2 -pointsize $ptsize -annotate 0 "$message" \
 	-background none -shadow 100x1+0+0 +repage \

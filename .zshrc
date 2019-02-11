@@ -72,6 +72,7 @@ export VSC_SCRATCH=/user/home/gent/vsc412/vsc41288/scratch
 export VSC_DATA_VO_USER=/user/data/gent/gvo000/gvo00003/vsc41288
 export VSC_SCRATCH_VO_USER=/user/scratch/gent/gvo000/gvo00003/vsc41288
 export OMP_NUM_THREADS=4
+export GIT_ASKPASS=$HOME/.config/scripts/git_pass.sh
 
 #vi mode
 bindkey -v

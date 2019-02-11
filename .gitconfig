@@ -3,3 +3,9 @@
 	email = Klaas.Gunst@UGent.be
 [core]
 	editor = vim
+
+[credential "https://github.ugent.be"]
+    username = kgunst
+
+[credential "https://github.com"]
+    username = klgunst
