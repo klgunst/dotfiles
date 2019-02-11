@@ -93,3 +93,4 @@ gpg-connect-agent updatestartuptty /bye &>/dev/null
 
 # MKL
 source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh intel64
+source ~/.secrets
