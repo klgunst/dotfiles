@@ -17,7 +17,7 @@ remotehost = owa.ugent.be
 remoteuser = klaas.gunst@ugent.be
 remotepasseval = get_ugentpass()
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-folderfilter = lambda foldername: foldername in ['Archive' 'INBOX', 'Verzonden items', 'Trash', 'Drafts']
+folderfilter = lambda foldername: foldername in ['Archive', 'INBOX', 'Verzonden items', 'Trash', 'Drafts']
 
 [Account Hotmail]
 localrepository = Hotmail-Local
