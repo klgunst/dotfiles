@@ -3,6 +3,7 @@
 ## shortcuts
 macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/ugent<enter><change-folder>!<enter>'
 macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/neomutt/hotmail<enter><change-folder>!<enter>'
+macro index,pager <f4> '<sync-mailbox><enter-command>source ~/.config/neomutt/caltech<enter><change-folder>!<enter>'
 macro pager \Cb <pipe-entry>'urlview'<enter> 'follow links with urlview'
 
 ## pager-shortcuts

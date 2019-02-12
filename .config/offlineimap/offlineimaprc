@@ -1,7 +1,7 @@
 [general]
 ui = ttyui
 pythonfile = ~/.config/offlineimap/offlineimap.py
-accounts= UGent, Hotmail
+accounts= UGent, Hotmail, Caltech
 
 [Account UGent]
 localrepository = UGent-Local
@@ -17,6 +17,7 @@ remotehost = owa.ugent.be
 remoteuser = klaas.gunst@ugent.be
 remotepasseval = get_ugentpass()
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+folderfilter = lambda foldername: foldername in ['Archive' 'INBOX', 'Verzonden items', 'Trash', 'Drafts']
 
 [Account Hotmail]
 localrepository = Hotmail-Local
@@ -32,3 +33,20 @@ remotehost = imap-mail.outlook.com
 remoteuser = klaasgunst@hotmail.com
 remotepasseval = get_hotmailpass()
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+folderfilter = lambda foldername: foldername in ['Archive', 'Inbox', 'Sent', 'Trash', 'Drafts']
+
+[Account Caltech]
+localrepository = Caltech-Local
+remoterepository = Caltech-Remote
+
+[Repository Caltech-Local]
+type = Maildir
+localfolders = ~/Mail/Caltech
+
+[Repository Caltech-Remote]
+type = IMAP
+remotehost = outlook.office365.com
+remoteuser = kgunst@caltech.edu
+remotepasseval = get_caltechpass()
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+folderfilter = lambda foldername: foldername in ['Archive', 'INBOX', 'Sent Items', 'Deleted Items', 'Drafts']
