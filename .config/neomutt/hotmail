@@ -9,13 +9,15 @@ set postponed 	= "+Hotmail/Drafts"
 set trash 	= "+Hotmail/Trash"
 
 unmailboxes *
-mailboxes +Hotmail/Inbox +Hotmail/Drafts +Hotmail/Trash +Hotmail/Sent +Hotmail/Archive
+mailboxes +Hotmail/Inbox +Hotmail/Archive +Hotmail/Sent +Hotmail/Trash +Hotmail/Drafts  
 
 # send options
+set sendmail 	= "/usr/bin/msmtp -a hotmail"
 set realname 	= "Klaas Gunst"
 set from 	= "klaasgunst@hotmail.com"
-set sendmail 	= "/usr/bin/msmtp -a hotmail"
-set record 	= "+Hotmail/Sent"
+# If i set this to Sent msmtp makes a duplicate
+# set record 	= "+Hotmail/Sent"
+set record 	= "/dev/null"
 
 macro index S ":set confirmappend=no delete=yes\n<tag-prefix-cond><save-message>$mbox\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
 macro index A ":set confirmappend=no delete=yes\n<save-message>$mbox\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
