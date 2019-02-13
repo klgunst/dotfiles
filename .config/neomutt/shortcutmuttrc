@@ -18,9 +18,9 @@ bind attach,index G last-entry
 bind index,pager R group-reply
 
 ## sidepane
-bind index,pager \Ck sidebar-prev
-bind index,pager \Cj sidebar-next
-bind index,pager \Cl sidebar-open
+bind index,pager J sidebar-next
+bind index,pager K sidebar-prev
+bind index,pager L sidebar-open
 
 ## toggle sidepane
 bind index,pager b sidebar-toggle-visible
