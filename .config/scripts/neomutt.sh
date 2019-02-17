@@ -18,7 +18,7 @@ while [ $(echo "$outp" | grep "ERR" &> /dev/null; echo $?) -eq 0 ]; do
 	fi
     fi
     if [ $(echo "$outp" | grep "No such device" &> /dev/null; echo $?) -eq 0 ]; then
-	pass Work/UGent > /dev/null
+	pass work/UGent > /dev/null
 	if [ $? -eq 2 ]; then
 	    exit 1
 	fi
