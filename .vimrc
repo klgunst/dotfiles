@@ -29,7 +29,7 @@ Plug 'junegunn/fzf'
 call plug#end()
 
 "Colorscheme
-let g:gruvbox_italic=1
+let g:gruvbox_italic=0
 colorscheme gruvbox
 hi Comment ctermfg=81
 
