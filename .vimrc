@@ -7,11 +7,16 @@ set number
 set relativenumber
 set shiftwidth=4
 
+let mapleader = "-"
+let maplocalleader = "\\"
+
 "buffer switching without save
 set hidden
 
 "spelling
 set spelllang=en_us
+nnoremap <leader>sn :setlocal spelllang=nl<cr>:setlocal spell<cr>
+nnoremap <leader>se :setlocal spelllang=en_us<cr>:setlocal spell<cr>
 
 "more natural splitting
 set splitbelow
@@ -90,8 +95,6 @@ augroup foldrestore
 augroup END
 
 " MAPPINGS
-let mapleader = "-"
-let maplocalleader = "\\"
 nnoremap <space> za
 vnoremap <space> zf
 noremap L $
