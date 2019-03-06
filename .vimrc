@@ -10,6 +10,13 @@ set shiftwidth=4
 let mapleader = "-"
 let maplocalleader = "\\"
 
+"For trailing whitespace. This prevents overwriting when loading a new
+"colorscheme
+augroup trailwhite
+  autocmd!
+  autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+augroup END
+
 "buffer switching without save
 set hidden
 
@@ -30,8 +37,20 @@ Plug 'ervandew/supertab'
 Plug 'morhetz/gruvbox'
 Plug 'haya14busa/vim-gtrans'
 Plug 'junegunn/fzf'
+Plug 'vim-syntastic/syntastic'
+Plug 'Vimjas/vim-python-pep8-indent'
 "Plug 'papis/papis-vim'
 call plug#end()
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ["flake8"]
 
 "Colorscheme
 let g:gruvbox_italic=0
@@ -40,7 +59,7 @@ hi Comment ctermfg=81
 
 hi Folded guibg=NONE ctermbg=NONE
 hi Normal guibg=NONE ctermbg=NONE
-set colorcolumn=80
+set colorcolumn=79
 highlight ColorColumn ctermbg=darkgrey
 
 "include dictionaries

@@ -9,3 +9,8 @@ alias paper="otex $HOME/Documents/papers/T3NS_SU2"
 alias ssh=~/.config/scripts/startssh.sh
 alias po="papis open "
 alias pbo="papis -l books open "
+
+# search configs
+se() { vim $(du -a ~/.vim/ftplugin/* ~/.vimrc ~/.config/* | awk '{print $2}' | fzf) ;}
+# search code
+sec() { cd "$HOME/Codes/$(ls ~/Codes | fzf)" ;}
