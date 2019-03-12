@@ -20,7 +20,7 @@ if [ $connected -eq 2 ]
 then
     primary=$(ask_screen)
     secondary=$(ask_screen)
-    position="right-of"
+    position="left-of"
 
     execute="xrandr --output $primary --auto --primary --output $secondary --auto --$position $primary"
 fi
