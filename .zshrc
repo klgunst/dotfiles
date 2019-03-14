@@ -72,6 +72,13 @@ export VSC_SCRATCH=/user/home/gent/vsc412/vsc41288/scratch
 export VSC_DATA_VO_USER=/user/data/gent/gvo000/gvo00003/vsc41288
 export VSC_SCRATCH_VO_USER=/user/scratch/gent/gvo000/gvo00003/vsc41288
 export OMP_NUM_THREADS=4
+TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
+'avg shared (code):         %X KB'$'\n'\
+'avg unshared (data/stack): %D KB'$'\n'\
+'total (sum):               %K KB'$'\n'\
+'max memory:                %M MB'$'\n'\
+'Major page faults:         %F'$'\n'\
+'Minor page faults:         %R'
 
 #vi mode
 bindkey -v
