@@ -10,10 +10,6 @@ setlocal encoding=utf-8
 :match ExtraWhitespace /\s\+\%#\@<!$/
 :autocmd InsertLeave * redraw!
 
-"This is for error navigation
-nnoremap <buffer> <localleader>ne :lnext<cr>
-nnoremap <buffer> <localleader>pe :lprevious<cr>
-
 "autocomment
 noremap <buffer> <localleader>c ^I# <esc>
 "should not be for operatormode
