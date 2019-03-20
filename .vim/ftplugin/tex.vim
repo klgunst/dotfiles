@@ -1,14 +1,16 @@
-setlocal tabstop=8
-setlocal expandtab
-setlocal shiftwidth=2
-setlocal softtabstop=2
-setlocal foldmethod=indent
+setl tabstop=8
+setl expandtab
+setl shiftwidth=2
+setl softtabstop=2
+setl foldmethod=indent
+setl fo+=aw
+setl nojs
+setl list
 
 "spell check
-setlocal spell
+setl spell
 
 "text width to 80
-setlocal textwidth=80
 
 "disable highlighting of italics and bold
 hi clear texItalStyle

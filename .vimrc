@@ -67,6 +67,7 @@ hi Comment ctermfg=81
 
 hi Folded guibg=NONE ctermbg=NONE
 hi Normal guibg=NONE ctermbg=NONE
+set textwidth=79
 set colorcolumn=79
 highlight ColorColumn ctermbg=darkgrey
 

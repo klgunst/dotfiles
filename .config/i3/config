@@ -142,7 +142,7 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # Workspace for paper:
-bindsym $mod+Shift+p workspace 10; exec $term -e ~/.local/bin/otex $paper_location/$curr_paper
+bindsym $mod+Shift+p workspace 10; exec $term -e ~/.local/bin/myscripts/otex $paper_location/$curr_paper
 
 # Workspace for vim learning:
 bindsym $mod+Shift+v workspace 9; exec $term -e vim; exec evince /home/kgunst/Documents/library/books/4da44b8e2d87889cdf0f483fbbf45aaa-unknown/learnvimscriptthehardway.pdf.pdf

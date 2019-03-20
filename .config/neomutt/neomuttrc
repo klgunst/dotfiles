@@ -1,6 +1,7 @@
 # vim: filetype=neomuttrc
 set realname="Klaas Gunst"
 set editor="/bin/vim"
+set text_flowed = yes
 
 # sidebar
 set sidebar_visible = yes
