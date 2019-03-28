@@ -1,0 +1,10 @@
+#!/usr//bin/expect -f
+
+set password [lindex $argv 0]
+set timeout -1 
+match_max 1000000
+
+spawn vpnc /etc/vpnc/ugent.conf
+expect "Enter password "
+send -- $password\r
+expect "VPN"

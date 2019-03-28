@@ -8,9 +8,10 @@ alias paper="otex $HOME/Documents/papers/T3NS_SU2"
 alias ssh=~/.config/scripts/startssh.sh
 alias po="papis open "
 alias pbo="papis -l books open "
-alias purvena="~/.config/scripts/startssh.sh purvena"
+alias startvpn="pass work/UGent | xargs -n1 sudo vpnstart.exp"
+alias purvena='if [ "x$(pgrep vpnc)" = "x" ]; then startvpn; fi; ~/.config/scripts/startssh.sh purvena'
+alias calana='if [ "x$(pgrep vpnc)" = "x" ]; then startvpn; fi; ~/.config/scripts/startssh.sh calana'
 alias hpc="~/.config/scripts/startssh.sh hpc"
-alias calana="~/.config/scripts/startssh.sh calana"
 
 # search configs
 se() { vim $(du -a ~/.vim/ftplugin/* ~/.vimrc ~/.config/* | awk '{print $2}' | fzf) ;}
