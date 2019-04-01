@@ -5,7 +5,7 @@ alias rm="rm -v "
 alias gpg="gpg2"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias paper="otex $HOME/Documents/papers/T3NS_SU2"
-alias ssh=~/.config/scripts/startssh.sh
+alias ssh=startssh
 alias po="papis open "
 alias pbo="papis -l books open "
 alias startvpn="pass work/UGent | xargs -n1 sudo vpnstart.exp"

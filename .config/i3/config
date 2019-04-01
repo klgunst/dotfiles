@@ -57,8 +57,7 @@ bindsym $mod+x 			exec --no-startup-id ~/.config/scripts/lock.sh
 bindsym $mod+Shift+x 		exec $shutdown
 bindsym $mod+Shift+s 		exec --no-startup-id ~/.config/scripts/screendmenu.sh
 
-bindsym $mod+Shift+b		exec --no-startup-id $browser
-bindsym $mod+b 			exec --no-startup-id ~/.config/scripts/duckycal.sh
+bindsym $mod+b			exec --no-startup-id $browser
 bindsym $mod+s 			exec --no-startup-id spotify
 bindsym $mod+n 			exec --no-startup-id $term -e $fmanager 
 bindsym $mod+Shift+n 		exec --no-startup-id $term_fwd $fmanager
@@ -68,7 +67,7 @@ bindsym $mod+a 			exec --no-startup-id ~/.config/scripts/editnote.sh
 
 bindsym $mod+f			fullscreen toggle
 bindsym $mod+t 			split toggle
-bindsym $mod+v 			exec $term -e ~/.config/scripts/startssh.sh hpc
+bindsym $mod+v 			exec $term -e connectcluster 
 
 # #---Arrow Keys---# #
 bindsym $mod+Left		focus left
