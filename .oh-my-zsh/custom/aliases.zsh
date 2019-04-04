@@ -9,9 +9,9 @@ alias ssh=startssh
 alias po="papis open "
 alias pbo="papis -l books open "
 alias startvpn="pass work/UGent | xargs -n1 sudo vpnstart.exp"
-alias purvena='if [ "x$(pgrep vpnc)" = "x" ]; then startvpn; fi; ~/.config/scripts/startssh.sh purvena'
-alias calana='if [ "x$(pgrep vpnc)" = "x" ]; then startvpn; fi; ~/.config/scripts/startssh.sh calana'
-alias hpc="~/.config/scripts/startssh.sh hpc"
+alias purvena='if [ "x$(pgrep vpnc)" = "x" ]; then startvpn; fi; startssh purvena'
+alias calana='if [ "x$(pgrep vpnc)" = "x" ]; then startvpn; fi; startssh calana'
+alias hpc="startssh hpc"
 
 # search configs
 se() { vim $(du -a ~/.vim/ftplugin/* ~/.vimrc ~/.config/* | awk '{print $2}' | fzf) ;}
