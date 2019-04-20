@@ -17,4 +17,4 @@ alias hpc="startssh hpc"
 se() { vim $(du -a ~/.vim/ftplugin/* ~/.vimrc ~/.config/* | awk '{print $2}' | fzf) ;}
 # search code
 sec() { cd "$HOME/Codes/$(ls ~/Codes | fzf)" ;}
-follow() { watch "egrep 'ENERGY|TRUNCATION|TIME|DIM' $1 | tail -n8; echo ''; tail -n10 $1" }
+follow() { watch "grep -E 'ENERGY|TRUNCATION|Total|DIM' $1 | tail -n8; echo ''; tail -n10 $1" }

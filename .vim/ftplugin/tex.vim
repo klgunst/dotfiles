@@ -3,9 +3,9 @@ setl expandtab
 setl shiftwidth=2
 setl softtabstop=2
 setl foldmethod=indent
-setl fo+=aw
-setl nojs
-setl list
+"setl fo+=aw
+"setl nojs
+"setl list
 
 "spell check
 setl spell
