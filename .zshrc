@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/kgunst/.oh-my-zsh
+export ZSH=/home/kgunst/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -66,12 +66,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export PROMPT='${ret_status} %m %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
+
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export VSC_SCRATCH=/user/home/gent/vsc412/vsc41288/scratch
 export VSC_DATA_VO_USER=/user/data/gent/gvo000/gvo00003/vsc41288
 export VSC_SCRATCH_VO_USER=/user/scratch/gent/gvo000/gvo00003/vsc41288
 export OMP_NUM_THREADS=4
+export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
+
 TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
 'avg shared (code):         %X KB'$'\n'\
 'avg unshared (data/stack): %D KB'$'\n'\
@@ -87,7 +92,7 @@ bindkey '^n' down-line-or-beginning-search
 
 #zshell completion
 compdef _gnu_generic T3NS
-compdef _git config=git
+#compdef _git config=git
 
 # Aliases moved to .oh-my-zsh/custom/aliases.zsh
 

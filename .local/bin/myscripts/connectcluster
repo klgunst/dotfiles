@@ -1,12 +1,12 @@
 #!/bin/bash
 
-answer=$(echo -e "purvena\nhpc\ncalana\nCancel" | dmenu -i -p "Select cluster to connect with" -fn 'inconsolata-LGC:size=20')
+answer=$(echo -e "purvena\npauling\nhpc\ncalana\nCancel" | dmenu -i -p "Select cluster to connect with" -fn 'inconsolata-LGC:size=20')
 
 if [ "$answer" == "purvena" ] || [ "$answer" == "calana" ]; then
     if [ "x$(pgrep vpnc)" = "x" ]; then 
 	pass work/UGent | xargs -n1 sudo vpnstart.exp
     fi 
     startssh $answer
-elif [ "$answer" == "hpc" ]; then
+elif [ "$answer" != "Cancel" ]; then
     startssh $answer
 fi

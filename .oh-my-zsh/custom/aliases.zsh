@@ -12,6 +12,7 @@ alias startvpn="pass work/UGent | xargs -n1 sudo vpnstart.exp"
 alias purvena='if [ "x$(pgrep vpnc)" = "x" ]; then startvpn; fi; startssh purvena'
 alias calana='if [ "x$(pgrep vpnc)" = "x" ]; then startvpn; fi; startssh calana'
 alias hpc="startssh hpc"
+alias pauling="startssh pauling"
 
 # search configs
 se() { vim $(du -a ~/.vim/ftplugin/* ~/.vimrc ~/.config/* | awk '{print $2}' | fzf) ;}
