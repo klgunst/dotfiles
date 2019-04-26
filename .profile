@@ -6,4 +6,8 @@ export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 
 # For google translate
-[ -f ~/.gtrans.sh ] && source ~/.gtrans.sh
+export GOOGLE_TRANSLATE_LANG=nl
+export GOOGLE_TRANSLATE_SECOND_LANG=en
+
+# API_KEY for google translate and other things
+[ -f ~/.secrets ] && source ~/.secrets
