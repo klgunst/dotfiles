@@ -6,3 +6,5 @@ setl nosmartindent
 setl spell
 setl list
 iabbrev <buffer> grtz <cr>With kind regards,<cr>Klaas Gunst
+let g:goyo_width=76
+execute "silent! :Goyo"

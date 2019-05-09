@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if synclient -l | grep "$1 *= *0" ;
+then
+    synclient $1=1
+else
+    synclient $1=0
+fi

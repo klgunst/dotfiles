@@ -1,5 +1,5 @@
-syntax on
 filetype indent plugin on
+syntax on
 
 set modeline
 set background=dark
@@ -37,6 +37,7 @@ Plug 'ervandew/supertab'
 Plug 'morhetz/gruvbox'
 Plug 'haya14busa/vim-gtrans'
 Plug 'junegunn/fzf'
+Plug 'junegunn/goyo.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'Vimjas/vim-python-pep8-indent'
 "Plug 'papis/papis-vim'
@@ -70,6 +71,9 @@ hi Normal guibg=NONE ctermbg=NONE
 set textwidth=79
 set colorcolumn=79
 highlight ColorColumn ctermbg=darkgrey
+
+" For Goyo
+nnoremap <leader>f :Goyo<CR>
 
 "include dictionaries
 au FileType * exec("setlocal dictionary+=".$HOME."/.vim/dictionaries/".expand('<amatch>'))

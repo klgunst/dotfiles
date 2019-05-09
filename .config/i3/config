@@ -55,7 +55,6 @@ bindsym $mod+space		focus mode_toggle
 # #---Letter Key Bindings---# #
 bindsym $mod+x 			exec --no-startup-id ~/.config/scripts/lock.sh
 bindsym $mod+Shift+x 		exec $shutdown
-bindsym $mod+Shift+s 		exec --no-startup-id ~/.config/scripts/screendmenu.sh
 
 bindsym $mod+b			exec --no-startup-id $browser
 bindsym $mod+s 			exec --no-startup-id spotify
@@ -127,6 +126,8 @@ bindsym XF86MonBrightnessDown		exec --no-startup-id xbacklight -dec 5
 bindsym XF86MonBrightnessUp		exec --no-startup-id xbacklight -inc 5
 bindsym Shift+XF86MonBrightnessDown	exec --no-startup-id xbacklight -set 1
 bindsym Shift+XF86MonBrightnessUp	exec --no-startup-id xbacklight -set 100
+bindsym XF86Display 			exec --no-startup-id ~/.config/scripts/screendmenu.sh
+bindsym XF86Tools 			exec --no-startup-id synclientToggle TouchpadOff
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -172,14 +173,14 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 1 px or 1 ppt
-        bindsym j resize grow height 1 px or 1 ppt
-        bindsym k resize shrink height 1 px or 1 ppt
-        bindsym l resize grow width 1 px or 1 ppt
-        bindsym Shift+h resize shrink width 4 px or 4 ppt
-        bindsym Shift+j resize grow height 4 px or 4 ppt
-        bindsym Shift+k resize shrink height 4 px or 4 ppt
-        bindsym Shift+l resize grow width 4 px or 4 ppt
+        bindsym h resize shrink width 2 px or 2 ppt
+        bindsym j resize grow height 2 px or 2 ppt
+        bindsym k resize shrink height 2 px or 2 ppt
+        bindsym l resize grow width 2 px or 2 ppt
+        bindsym Shift+h resize shrink width 10 px or 10 ppt
+        bindsym Shift+j resize grow height 10 px or 10 ppt
+        bindsym Shift+k resize shrink height 10 px or 10 ppt
+        bindsym Shift+l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 1 px or 1 ppt
