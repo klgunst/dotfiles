@@ -35,3 +35,4 @@ application/pdf=org.gnome.Evince.desktop;evince.desktop;
 image/svg+xml=inkscape.desktop;
 text/x-python=libreoffice-writer.desktop;
 application/x-shellscript=libreoffice-writer.desktop;
+application/x-ica=receiver.desktop;
