@@ -17,7 +17,7 @@ hi clear texItalStyle
 hi clear texBoldStyle
 
 let g:vimtex_compiler_method='latexmk'
-let g:vimtex_view_general_viewer = 'evince'
+let g:vimtex_view_general_viewer = 'zathura'
 
 if empty(v:servername) && exists('*remote_startserver')
     call remote_startserver('VIM')

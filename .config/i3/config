@@ -6,7 +6,7 @@ set $mod Mod1
 set $term --no-startup-id st
 set $term_fwd --no-startup-id ~/.config/scripts/term_fwd
 set $fmanager lf
-set $browser qutebrowser
+set $browser firefox
 set $curr_paper T3NS_SU2
 set $paper_location ~/Documents/papers
 set $shutdown --no-startup-id ~/.config/scripts/shutdown.sh

@@ -40,8 +40,14 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/goyo.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'junegunn/vim-emoji'
 "Plug 'papis/papis-vim'
 call plug#end()
+
+""" For vim-emoji
+set completefunc=emoji#complete
+""" fill emojies
+nnoremap <leader>fe :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<cr>
 
 "For Syntastic
 set statusline+=%#warningmsg#
