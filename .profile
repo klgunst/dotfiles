@@ -1,4 +1,4 @@
-export PATH=$PATH:$HOME/go/bin:$HOME/.local/bin:$HOME/.local/bin/myscripts:/opt/VESTA
+export PATH=$PATH:$HOME/go/bin:$HOME/.local/bin:$HOME/.local/bin/myscripts:/opt/VESTA:/opt/intel/vtune_amplifier/bin64
 export PYTHONPATH=/opt/pyscf:$PYTHONPATH
 export NO_AT_BRIDGE=1 #suppresses evince warnings
 export BROWSER='firefox'
