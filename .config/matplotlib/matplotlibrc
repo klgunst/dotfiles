@@ -193,7 +193,7 @@ backend      : Agg
 
 font.family        : serif
 font.serif         : CMU Serif
-font.sans-serif    : DejaVu Sans, CMU Sans serif
+font.sans-serif    : CMU Sans serif
 font.cursive       : Zapf Chancery
 font.monospace     : CMU Typewriter Text
 

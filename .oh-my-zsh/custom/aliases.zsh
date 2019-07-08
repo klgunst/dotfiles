@@ -19,3 +19,4 @@ se() { vim $(du -a ~/.vim/ftplugin/* ~/.vimrc ~/.config/* | awk '{print $2}' | f
 # search code
 sec() { cd "$HOME/Codes/$(ls ~/Codes | fzf)" ;}
 follow() { watch "grep -E 'ENERGY|TRUNCATION|Total|DIM' $1 | tail -n8; echo ''; tail -n10 $1" }
+o() { xdg-open $1 &> /dev/null& disown ;}
