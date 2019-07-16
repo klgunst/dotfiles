@@ -48,3 +48,7 @@ set alias_file = "~/.config/neomutt/aliases"
 set sort_alias = alias
 set reverse_alias = yes
 source $alias_file
+
+## attachment allerts
+set abort_noattach = "ask-yes"
+set abort_noattach_regex ="\\<(bijlage|bijlagen|attached|attachments?)\\>"
