@@ -13,6 +13,7 @@ alias purvena='if [ "x$(pgrep vpnc)" = "x" ]; then startvpn; fi; startssh purven
 alias calana='if [ "x$(pgrep vpnc)" = "x" ]; then startvpn; fi; startssh calana'
 alias hpc="startssh hpc"
 alias pauling="startssh pauling"
+alias padoi="papis add --from-doi"
 
 # search configs
 se() { vim $(du -a ~/.vim/ftplugin/* ~/.vimrc ~/.config/* | awk '{print $2}' | fzf) ;}
