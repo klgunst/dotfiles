@@ -1,14 +1,13 @@
 #!/bin/bash
 shot="/tmp/screen.png"
 lock="$HOME/.config/scripts/lock.png"
-scrot -z $shot
+scrot -zo $shot
 convert $shot -scale 25% -blur 0x2 -scale 400% $shot
 WIDTHOFF=$(( $(feh -l $shot | tail -n 1 | awk '{printf $3;}') / 2 ))
 HEIGHTOFF=$(( $(feh -l $shot | tail -n 1 | awk '{printf $4;}') / 2 ))
 
 screeninfo=$(xrandr -q | grep -w connected)
 connected=$(echo "$screeninfo" | wc -l)
-echo $connected
 if [[ -f $lock ]]
 then
     for (( i=1 ; i<=$connected; i++ ))
@@ -24,7 +23,7 @@ then
 	hoff=$(echo $info | awk '{print $4}')
 	woff=$(( $WIDTHOFF - $woff - $wscreen / 2 ))
 	hoff=$(( $HEIGHTOFF - $hoff - $hscreen / 2 ))
-	convert $shot $lock  -geometry -$woff-$hoff -gravity center -composite -matte $shot
+	convert $shot $lock  -geometry -$woff-$hoff -gravity center -composite $shot
     done
 fi
 
@@ -34,11 +33,12 @@ playingid=$($HOME/.config/scripts/music_dbus.py isplaying)
 $HOME/.config/scripts/music_dbus.py Pause
 
 # muting all the rest
-$HOME/.config/scripts/volumecontrol.sh mute
-i3lock -n -u -e -i /tmp/screen.png
+sink=$($HOME/.config/scripts/volumecontrol.sh mute)
+i3lock -n -u -e -i $shot
 
 # unmuting all the rest
-$HOME/.config/scripts/volumecontrol.sh mute
-#if [ -n "$playingid" ]; then
-#    $HOME/.config/scripts/music_dbus.py Play $playingid
-#fi
+$HOME/.config/scripts/volumecontrol.sh mute $sink
+
+if [ -n "$playingid" ]; then
+    $HOME/.config/scripts/music_dbus.py Play $playingid
+fi
