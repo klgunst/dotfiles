@@ -77,6 +77,10 @@ export OMP_NUM_THREADS=4
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 
+# change history size 
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+
 TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
 'avg shared (code):         %X KB'$'\n'\
 'avg unshared (data/stack): %D KB'$'\n'\
@@ -85,14 +89,13 @@ TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
 'Major page faults:         %F'$'\n'\
 'Minor page faults:         %R'
 
-#vi mode
+# vi mode
 bindkey -v
 bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
 
-#zshell completion
+# zshell completion
 compdef _gnu_generic T3NS
-#compdef _git config=git
 
 # Aliases moved to .oh-my-zsh/custom/aliases.zsh
 
