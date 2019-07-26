@@ -1,0 +1,3 @@
+#!/bin/bash
+# Parallel updating of all the offlineimap accounts
+grep Account $HOME/.offlineimaprc | awk '{print $NF}' | sed 's/]//g' | parallel offlineimap -a

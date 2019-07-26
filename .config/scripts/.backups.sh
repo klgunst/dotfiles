@@ -7,14 +7,20 @@ if [ ! -f $HOME/.exclude-backup.txt ]; then
 .cache/
 .Backups/
 Calculations/
+Downloads/
 .mozilla/
 Mail/
 Calculations/
-.local/share/gvfs-metadata/
 .dbus/
 .ssh/id*
 .offlineimap/*.lock
 .cfg
+.xsession-*
+.zcompdump-*
+.zsh_history
+.Xauthority
+.lesshst
+.local
 EOF
     echo "Created $HOME/.exclude-backup.txt"
 fi
@@ -30,13 +36,16 @@ ls /var/service > $HOME/.services_activated-$(hostname)
 #local backup
 echo "Local Backup..."
 $HOME/.config/scripts/.localbackup.sh > $HOME/.lastbackup
-tail -n 16 $(ls -t /tmp/backup-* | head -n 1)
+if [ $? -eq 0 ]; then
+    tail -n 16 $(ls -t /tmp/backup-* | head -n 1)
+fi
 
 #backup on a server
 echo "Remote Backup..."
-echo "Not doing this, should addapt te exclude file..."
-#$HOME/.config/scripts/.remotebackup.sh >> $HOME/.lastbackup
-#tail -n 16 $(ls -t /tmp/backup-* | head -n 1)
+# Do not wanna include Films in remote backup
+echo "Films" >> /tmp/exclude-backup.txt
+$HOME/.config/scripts/.remotebackup.sh >> $HOME/.lastbackup
+tail -n 16 $(ls -t /tmp/backup-* | head -n 1)
 
 
 

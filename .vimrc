@@ -178,4 +178,4 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "Running script
-noremap <buffer> <leader>m :make<cr>
+nnoremap <leader>m :make<cr>

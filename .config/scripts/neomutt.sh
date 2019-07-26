@@ -29,9 +29,8 @@ while [ $(echo "$outp" | grep "ERR" &> /dev/null; echo $?) -eq 0 ]; do
     fi
 done
 
-offlineimap -a UGent &> /dev/null&
-offlineimap -a Hotmail &> /dev/null&
-offlineimap -a Caltech &> /dev/null&
+# parallel offlineimap
+updatemail &> /dev/null&
 neomutt
 
 exit 0
