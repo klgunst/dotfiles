@@ -1,6 +1,6 @@
-export PATH=$PATH:$HOME/go/bin:$HOME/.local/bin:$HOME/.local/bin/myscripts:/opt/VESTA:/opt/intel/vtune_amplifier/bin64
+export PATH=$HOME/.local/bin:/opt/VESTA:/opt/intel/vtune_amplifier/bin64
 export PYTHONPATH=/opt/pyscf:$PYTHONPATH
-export NO_AT_BRIDGE=1 #suppresses evince warnings
+export GOPATH=$HOME/.local/go
 export BROWSER='firefox'
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
