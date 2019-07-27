@@ -1,4 +1,4 @@
-export PATH=$HOME/.local/bin:/opt/VESTA:/opt/intel/vtune_amplifier/bin64
+export PATH=$PATH:$HOME/.local/bin:/opt/VESTA:/opt/intel/vtune_amplifier/bin64
 export PYTHONPATH=/opt/pyscf:$PYTHONPATH
 export GOPATH=$HOME/.local/go
 export BROWSER='firefox'
