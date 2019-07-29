@@ -15,8 +15,8 @@ alias hpc="startssh hpc"
 alias pauling="startssh pauling"
 alias padoi="papis add --from-doi"
 
-# search configs
-se() { vim $(du -a ~/.vim/ftplugin/* ~/.vimrc ~/.config/* | awk '{print $2}' | fzf) ;}
+# search configs of my dotfile git repo
+se() { vim $HOME/$(git --git-dir=$HOME/.cfg/ --work-tree=$HOME ls-files --full-name ~ | fzf) ;}
 # search code
 sec() { cd "$HOME/Codes/$(ls ~/Codes | fzf)" ;}
 follow() { watch "grep -E 'ENERGY|TRUNCATION|Total|DIM' $1 | tail -n8; echo ''; tail -n10 $1" }
