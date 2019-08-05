@@ -16,4 +16,4 @@ noremap <buffer> <localleader>c ^I# <esc>
 "should not be for operatormode
 ounmap <buffer> <localleader>c
 
-noremap <buffer> <localleader>a o'''<CR>'''<Esc>kA
+noremap <buffer> <localleader>a o"""<CR>"""<Esc>kA

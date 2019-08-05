@@ -6,9 +6,13 @@ set background=dark
 set number
 set relativenumber
 set shiftwidth=4
+set dictionary+=spell
 
 let mapleader = "-"
 let maplocalleader = "\\"
+
+" Standard tex flavor used is latex.
+let g:tex_flavor = "latex"
 
 "For trailing whitespace. This prevents overwriting when loading a new
 "colorscheme
@@ -36,12 +40,9 @@ Plug 'lervag/vimtex'
 Plug 'ervandew/supertab'
 Plug 'morhetz/gruvbox'
 Plug 'haya14busa/vim-gtrans'
-Plug 'junegunn/fzf'
-Plug 'junegunn/goyo.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'junegunn/vim-emoji'
-"Plug 'papis/papis-vim'
 call plug#end()
 
 """ For vim-emoji
