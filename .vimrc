@@ -43,6 +43,7 @@ Plug 'haya14busa/vim-gtrans'
 Plug 'vim-syntastic/syntastic'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'junegunn/vim-emoji'
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 """ For vim-emoji

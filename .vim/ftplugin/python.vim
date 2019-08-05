@@ -17,3 +17,6 @@ noremap <buffer> <localleader>c ^I# <esc>
 ounmap <buffer> <localleader>c
 
 noremap <buffer> <localleader>a o"""<CR>"""<Esc>kA
+
+"For Jedi-Vim
+let g:jedi#popup_on_dot=0
