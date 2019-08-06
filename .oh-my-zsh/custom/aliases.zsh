@@ -21,4 +21,4 @@ se() { vim $HOME/$(git --git-dir=$HOME/.cfg/ --work-tree=$HOME ls-files --full-n
 # search code
 sec() { cd "$HOME/Codes/$(ls ~/Codes | fzf)" ;}
 follow() { watch "grep -E 'ENERGY|TRUNCATION|Total|DIM' $1 | tail -n8; echo ''; tail -n10 $1" }
-o() { xdg-open $1 &> /dev/null& disown ;}
+o() { if [ "$(xdg-mime query filetype $1)" = "text/plain" ]; then vim $1; else xdg-open $1 &> /dev/null& disown; fi ; }

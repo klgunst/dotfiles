@@ -11,10 +11,10 @@ application/xhtml+xml=userapp-Firefox-N1A1EZ.desktop
 application/x-extension-xhtml=userapp-Firefox-N1A1EZ.desktop
 application/x-extension-xht=userapp-Firefox-N1A1EZ.desktop
 image/jpeg=feh.desktop;
-inode/directory=Thunar.desktop;
 application/x-ica=wfica.desktop
 application/vnd.citrix.receiver.configure=new_store.desktop
 application/pdf=org.pwmt.zathura.desktop;org.gnome.Evince.desktop;
+image/png=feh.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;userapp-Firefox-N1A1EZ.desktop;
@@ -29,10 +29,8 @@ application/xhtml+xml=firefox.desktop;userapp-Firefox-N1A1EZ.desktop;
 application/x-extension-xhtml=firefox.desktop;userapp-Firefox-N1A1EZ.desktop;
 application/x-extension-xht=firefox.desktop;userapp-Firefox-N1A1EZ.desktop;
 image/jpeg=feh.desktop;
-inode/directory=Thunar.desktop;
 image/png=feh.desktop;
 image/svg+xml=inkscape.desktop;
 text/x-python=libreoffice-writer.desktop;
 application/x-shellscript=libreoffice-writer.desktop;
 application/x-ica=receiver.desktop;
-application/pdf=org.pwmt.zathura.desktop;org.gnome.Evince.desktop;
