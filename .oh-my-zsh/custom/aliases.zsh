@@ -14,11 +14,28 @@ alias calana='if [ "x$(pgrep vpnc)" = "x" ]; then startvpn; fi; startssh calana'
 alias hpc="startssh hpc"
 alias pauling="startssh pauling"
 alias padoi="papis add --from-doi"
-alias plot="python3 plot.py"
 
 # search configs of my dotfile git repo
 se() { vim $HOME/$(git --git-dir=$HOME/.cfg/ --work-tree=$HOME ls-files --full-name ~ | fzf) ;}
 # search code
 sec() { cd "$HOME/Codes/$(ls ~/Codes | fzf)" ;}
 follow() { watch "grep -E 'ENERGY|TRUNCATION|Total|DIM' $1 | tail -n8; echo ''; tail -n10 $1" }
-o() { if [ "$(xdg-mime query filetype $1)" = "text/plain" ]; then vim $1; else xdg-open $1 &> /dev/null& disown; fi ; }
+o() {
+    vimopen=
+    for i in $@; do
+	if [ "$(xdg-mime query filetype $i)" = "text/plain" ]; then
+	    if [ ! -z $vimopen ]; then
+		vimopen="$vimopen\n$i"
+	    else
+		vimopen="$i"
+	    fi
+	else
+	    xdg-open $i &> /dev/null&!
+	fi
+    done
+    if [ ! -z $vimopen ]; then
+	echo -e "$vimopen" | parallel -Xj1 --tty vim
+    fi
+    }
+replot() { python3 plot.py $*; }
+plot() { replot $* ; ls -t *.pdf | head -n1; o $(ls -t *.pdf | head -n1) ; }
