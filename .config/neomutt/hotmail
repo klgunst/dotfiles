@@ -1,4 +1,5 @@
 # vim: filetype=neomuttrc
+## my Hotmail
 
 set mbox_type = Maildir
 ## my hotmail
@@ -13,10 +14,9 @@ mailboxes +Hotmail/Inbox +Hotmail/Archive +Hotmail/Sent +Hotmail/Trash +Hotmail/
 
 # send options
 set sendmail 	= "/usr/bin/msmtp -a hotmail"
-set realname 	= "Klaas Gunst"
 set from 	= "klaasgunst@hotmail.com"
+set realname 	= "Klaas Gunst"
 # If i set this to Sent msmtp makes a duplicate
-# set record 	= "+Hotmail/Sent"
 set record 	= "/dev/null"
 
 macro index S ":set confirmappend=no delete=yes\n<tag-prefix-cond><save-message>$mbox\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
