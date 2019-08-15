@@ -30,7 +30,7 @@ while [ $(echo "$outp" | grep "ERR" &> /dev/null; echo $?) -eq 0 ]; do
 done
 
 # parallel offlineimap
-updatemail &> /dev/null&
+updatemail &> /dev/null& disown
 neomutt
 
 exit 0

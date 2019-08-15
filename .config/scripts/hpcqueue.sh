@@ -27,7 +27,12 @@ fi
 # for gent hpc
 #outpform=$(echo "$outp" | sed '/Username\|--------/d' | awk '{print $5, $4, $6, $2}' | column -t)
 # for Pauling
-outpform=$(echo "$outp" | awk '{print $(NF-1), $(NF-2), $NF, $4}' | column -t)
+if [ -z "$outp" ]
+then
+    outpform=""
+else
+    outpform=$(echo "$outp" | awk '{print $(NF-1), $(NF-2), $NF, $4}' | column -t)
+fi
 echo -e "$outpform" > $tempfil
 nmbrQ=$(echo "$outpform" | awk '{print $1}' | grep Q | wc -l)
 nmbrR=$(echo "$outpform" | awk '{print $1}' | grep R | wc -l)

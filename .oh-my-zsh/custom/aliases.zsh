@@ -38,4 +38,4 @@ o() {
     fi
     }
 replot() { python3 plot.py $*; }
-plot() { replot $* ; ls -t *.pdf | head -n1; o $(ls -t *.pdf | head -n1) ; }
+plot() { replot $* ; ls -t *.pdf | head -n1; o "$(ls -t *.pdf | head -n1)" ; }
