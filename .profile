@@ -1,5 +1,4 @@
 export PATH=$PATH:$HOME/.local/bin:/opt/VESTA:/opt/intel/vtune_amplifier/bin64:/opt/Citrix/ICAClient
-export PYTHONPATH=/opt/pyscf:$PYTHONPATH
 export GOPATH=$HOME/.local/go
 export NO_AT_BRIDGE=1  # suppresses evince warnings
 export BROWSER='firefox'

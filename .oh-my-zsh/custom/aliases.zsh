@@ -39,3 +39,4 @@ o() {
     }
 replot() { python3 plot.py $*; }
 plot() { replot $* ; ls -t *.pdf | head -n1; o "$(ls -t *.pdf | head -n1)" ; }
+gmol() { gmolden $1 &> /dev/null&! ; }
