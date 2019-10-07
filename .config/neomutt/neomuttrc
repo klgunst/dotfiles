@@ -23,7 +23,6 @@ set  sleep_time = 0
 source "~/.config/neomutt/ugent"
 folder-hook UGent/* 'source ~/.config/neomutt/ugent'
 folder-hook Hotmail/* 'source ~/.config/neomutt/hotmail'
-folder-hook Caltech/* 'source ~/.config/neomutt/caltech'
 
 ## sort/threading
 set sort 	= threads
