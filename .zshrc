@@ -109,3 +109,4 @@ gpg-connect-agent updatestartuptty /bye &>/dev/null
 # MKL
 source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh intel64
 export LD_PRELOAD=$MKLROOT/lib/intel64/libmkl_def.so:$MKLROOT/lib/intel64/libmkl_sequential.so:$MKLROOT/lib/intel64/libmkl_core.so
+export MANPATH=$MANPATH:/usr/share/man:/usr/local/share/man
