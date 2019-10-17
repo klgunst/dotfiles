@@ -34,19 +34,3 @@ remoteuser = klaasgunst@hotmail.com
 remotepasseval = get_hotmailpass()
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 folderfilter = lambda foldername: foldername in ['Archive', 'Inbox', 'Sent', 'Trash', 'Drafts']
-
-[Account Caltech]
-localrepository = Caltech-Local
-remoterepository = Caltech-Remote
-
-[Repository Caltech-Local]
-type = Maildir
-localfolders = ~/Mail/Caltech
-
-[Repository Caltech-Remote]
-type = IMAP
-remotehost = outlook.office365.com
-remoteuser = kgunst@caltech.edu
-remotepasseval = get_caltechpass()
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-folderfilter = lambda foldername: foldername in ['Archive', 'INBOX', 'Sent Items', 'Deleted Items', 'Drafts']

@@ -6,6 +6,3 @@ def get_ugentpass():
 
 def get_hotmailpass():
         return check_output("pass BigGuys/Microsoft | grep App-password | sed 's/App-password=//'", shell=True).strip("\n")
-
-def get_caltechpass():
-        return check_output("pass work/CalTech/access | head -n1", shell=True).strip("\n")
