@@ -14,7 +14,7 @@ alias calana='if [ "x$(pgrep vpnc)" = "x" ]; then startvpn; fi; startssh calana'
 alias hpc="startssh hpc"
 alias pauling="startssh pauling"
 alias graham="startssh graham"
-alias padoi="papis add --from-doi"
+alias padoi="papis add --from doi"
 alias python=python3
 
 # search configs of my dotfile git repo

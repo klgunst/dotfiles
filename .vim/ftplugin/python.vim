@@ -7,6 +7,7 @@ setlocal fileformat=unix
 setlocal foldmethod=indent
 setlocal encoding=utf-8
 setlocal makeprg=python3\ %
+setlocal errorformat^=%-G%f:%l:\ H5pyDeprecationWarning%.%#
 
 :match ExtraWhitespace /\s\+\%#\@<!$/
 :autocmd InsertLeave * redraw!

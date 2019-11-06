@@ -15,6 +15,7 @@ application/x-ica=wfica.desktop
 application/vnd.citrix.receiver.configure=new_store.desktop
 application/pdf=org.pwmt.zathura.desktop;org.gnome.Evince.desktop;
 image/png=feh.desktop
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;userapp-Firefox-N1A1EZ.desktop;

@@ -76,7 +76,7 @@ export VSC_SCRATCH_VO_USER=/user/scratch/gent/gvo000/gvo00003/vsc41288
 export OMP_NUM_THREADS=4
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
-export PYTHONPATH=$PYTHONPATH:/opt/pyscf:$HOME/Codes/banana:$HOME/Codes/cashew:$HOME/Codes/T3NS/python:$HOME/Codes/MFPS:$HOME/Codes/SecondQuantizationAlgebra
+export PYTHONPATH=$PYTHONPATH:/opt/pyscf:$HOME/Codes/banana:$HOME/Codes/cashew:$HOME/Codes/T3NS/python:$HOME/Codes/MFPS:$HOME/Codes/SecondQuantizationAlgebra:$HOME/Codes/Pi-nuts
 
 # change history size 
 export HISTSIZE=1000000
