@@ -18,6 +18,8 @@ noremap <buffer> <localleader>c ^I# <esc>
 ounmap <buffer> <localleader>c
 
 noremap <buffer> <localleader>a o"""<CR>"""<Esc>kA
+noremap <buffer> <localleader>plt ggOimport matplotlib.pyplot as plt<Esc>
+noremap <buffer> <localleader>np ggOimport numpy as np<Esc>
 
 "For Jedi-Vim
 let g:jedi#popup_on_dot=0
