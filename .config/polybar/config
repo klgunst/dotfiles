@@ -286,7 +286,7 @@ format-underline = ${xrdb:color15}
 
 [module/music_dbus]
 type = custom/script
-exec = ~/.config/scripts/music_dbus.py watch
+exec = python3 ~/.config/scripts/music_dbus.py watch
 tail = true
 format = <label>
 label = %output%

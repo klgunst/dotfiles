@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import sys
 from pydbus import SessionBus
 from gi.repository import GLib
@@ -103,11 +101,11 @@ if __name__ == '__main__':
             bus_add(idx, name)
     except:
         pass
-    
+
     if sys.argv[1] == 'watch':
-        bus.watch_name(busnames[0], name_appeared=lambda name:bus_add(0, name), 
+        bus.watch_name(busnames[0], name_appeared=lambda name:bus_add(0, name),
                 name_vanished=lambda:bus_remove(0))
-        bus.watch_name(busnames[1], name_appeared=lambda name:bus_add(1, name), 
+        bus.watch_name(busnames[1], name_appeared=lambda name:bus_add(1, name),
                 name_vanished=lambda:bus_remove(1))
         GLib.MainLoop().run()
     elif sys.argv[1] == 'info':
