@@ -10,5 +10,10 @@ syn region mdTeX start="\\begin{.\+}" end="\\end{.\+}" contains=@TeX keepend fol
 syn region mdTeX start="\$" end="\$" contains=@TeX keepend fold
 unlet! b:current_syntax
 
+"For python in markdown
+syntax include @Python syntax/python.vim
+syn region mdPython matchgroup=markdownCode start="^```python$" end="^\(```\|\.\.\.\)$" contains=@Python fold
+unlet! b:current_syntax
+
 let b:current_syntax = 'markdown'
 hi markdownItalic cterm=italic

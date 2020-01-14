@@ -4,18 +4,12 @@ setl shiftwidth=2
 setl softtabstop=2
 setl foldmethod=indent
 
-"setl fo+=aw
-"setl nojs
-"setl list
+"concealing
+setl conceallevel=2
+let g:tex_conceal="abdgm"
 
 "spell check
 setl spell
-
-"text width to 80
-
-"disable highlighting of italics and bold
-hi clear texItalStyle
-hi clear texBoldStyle
 
 let g:vimtex_compiler_method='latexmk'
 let g:vimtex_view_general_viewer = 'zathura'
@@ -56,7 +50,6 @@ inoremap <buffer> <C-j> <Esc>:exec "normal f" . leavechar<CR>a
 iabbrev <buffer> coordinaten coördinaten
 iabbrev <buffer> coordinaat coördinaat
 iabbrev <buffer> potentiele potentiële
-iabbrev <buffer> \ref{ NONONONO
 
 inoremap <buffer> ( ()<Esc>:let leavechar=")"<CR>i
 inoremap <buffer> { {}<Esc>:let leavechar="}"<CR>i

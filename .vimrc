@@ -36,14 +36,15 @@ set splitright
 call plug#begin('$HOME/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'abudden/taghighlight-automirror'
-Plug 'lervag/vimtex'
 Plug 'ervandew/supertab'
 Plug 'morhetz/gruvbox'
 Plug 'haya14busa/vim-gtrans'
 Plug 'vim-syntastic/syntastic'
-Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'junegunn/vim-emoji'
-Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
+Plug 'lervag/vimtex', {'for': 'tex'}
+Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 call plug#end()
 
 """ For vim-emoji
