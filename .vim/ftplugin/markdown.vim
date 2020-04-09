@@ -1,8 +1,10 @@
 setl spell
 setl nojs
 setl list
+"Setting digraph easier to input as <char1><BS><char2>
+setl digraph
 
-setlocal makeprg=pandoc\ %\ --pdf-engine=xelatex\ -o\ '%:r'.pdf
+setlocal makeprg=pandoc\ %\ --pdf-engine=xelatex
 
 "Folding
 function! MarkdownLevel()
