@@ -7,18 +7,13 @@ if [ "x$1" != "x" ]; then
     fi
 fi
 
-FILE=$(ls *.latexmain 2> /dev/null | sed 's/\.tex\.latexmain//')
+FILE="$(ls *.tex | xargs -n1 grep -H '\\begin{document}' | cut -d':' -f1)"
 
-if [ "x$FILE" == "x" ]; then
-    if [ $(ls *.tex 2> /dev/null | wc -l) -eq 0 ]; then
-	(>&2 echo "No tex file found.")
-	exit 1
-    elif [ $(ls *.tex 2> /dev/null | wc -l) -ne 1 ]; then
-	(>&2 echo "More than one tex file found, touch a .latexmain file.")
-	exit $(echo $FILE | wc -l)
-    fi
-    FILE=$(ls *.tex 2> /dev/null | sed 's/\.tex//')
+if [ $(echo "$FILE" | wc -l) -ne 1 ]; then
+    >&2 echo "$(echo "$FILE" | wc -l) different main tex files found"
+    exit 1
 fi
+FILE=$(echo "$FILE" | sed 's/\.tex$//')
 
 xdg-open $FILE.pdf 2>/dev/null&
 vim $FILE.tex

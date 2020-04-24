@@ -16,6 +16,8 @@ alias pauling="startssh pauling"
 alias graham="startssh graham"
 alias padoi="papis add --from doi"
 alias python=python3
+alias clebsch="feh -Z $HOME/Pictures/clebsch_gordan.jpg"
+alias xapers="conda_xapers"
 
 # search configs of my dotfile git repo
 se() { 

@@ -191,10 +191,10 @@ backend      : Agg
 ## The font.size property is the default font size for text, given in pts.
 ## 10 pt is the standard value.
 
-font.family        : serif
-font.serif         : CMU Serif
-font.sans-serif    : CMU Sans serif
-font.cursive       : Zapf Chancery
+font.family        : STIX Two Text
+# font.serif         : CMU Serif
+# font.sans-serif    : CMU Sans serif
+# font.cursive       : Zapf Chancery
 font.monospace     : CMU Typewriter Text
 
 #font.family         : sans-serif
@@ -272,10 +272,10 @@ font.monospace     : CMU Typewriter Text
 #mathtext.it  : sans:italic
 #mathtext.bf  : sans:bold
 #mathtext.sf  : sans
-mathtext.fontset : cm ## Should be 'dejavusans' (default),
+mathtext.fontset : stix ## Should be 'dejavusans' (default),
                                ## 'dejavuserif', 'cm' (Computer Modern), 'stix',
                                ## 'stixsans' or 'custom'
-mathtext.rm  : serif
+mathtext.rm  : STIX Two Text
 #mathtext.fallback_to_cm : True  ## When True, use symbols from the Computer Modern
                                  ## fonts when a symbol can not be found in one of
                                  ## the custom math fonts.
