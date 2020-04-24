@@ -76,7 +76,7 @@ export VSC_SCRATCH_VO_USER=/user/scratch/gent/gvo000/gvo00003/vsc41288
 export OMP_NUM_THREADS=4
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
-export PYTHONPATH=$PYTHONPATH:/opt/pyscf:$HOME/Codes/banana:$HOME/Codes/cashew:$HOME/Codes/T3NS/python:$HOME/Codes/MFPS:$HOME/Codes/SecondQuantizationAlgebra:$HOME/Codes/Pi-nuts
+export PYTHONPATH=$PYTHONPATH:/opt/pyscf:$HOME/Codes/banana:$HOME/Codes/cashew:$HOME/Codes/T3NS/python:$HOME/Codes/MFPS:$HOME/Codes/SecondQuantizationAlgebra:$HOME/Codes/Pi-nuts:$HOME/Codes/sloth
 
 # change history size 
 export HISTSIZE=1000000
@@ -109,4 +109,23 @@ gpg-connect-agent updatestartuptty /bye &>/dev/null
 # MKL
 source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh intel64
 export LD_PRELOAD=$MKLROOT/lib/intel64/libmkl_def.so:$MKLROOT/lib/intel64/libmkl_sequential.so:$MKLROOT/lib/intel64/libmkl_core.so
-export MANPATH=$MANPATH:/usr/share/man:/usr/local/share/man
+export MANPATH=$MANPATH:/usr/share/man:/usr/local/share/man:$HOME/.local/share/man
+
+# For jax
+export JAX_ENABLE_X64='True'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/kgunst/Codes/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/kgunst/Codes/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/kgunst/Codes/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/kgunst/Codes/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

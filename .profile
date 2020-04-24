@@ -1,4 +1,4 @@
-export PATH=$PATH:$HOME/.local/bin:/opt/VESTA:/opt/intel/vtune_amplifier/bin64:/opt/Citrix/ICAClient
+export PATH=$HOME/.local/bin:$PATH:/opt/VESTA:/opt/intel/vtune_amplifier/bin64:/opt/Citrix/ICAClient
 export GOPATH=$HOME/.local/go
 export NO_AT_BRIDGE=1  # suppresses evince warnings
 export BROWSER='firefox'
