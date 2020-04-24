@@ -16,3 +16,4 @@ endfunction
 
 setlocal foldexpr=MarkdownLevel()
 setlocal foldmethod=expr
+ru ftplugin/common_digraphs.vim

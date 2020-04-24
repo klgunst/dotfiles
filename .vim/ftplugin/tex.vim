@@ -4,15 +4,15 @@ setl shiftwidth=2
 setl softtabstop=2
 setl foldmethod=indent
 
+let g:vimtex_view_general_viewer = "zathura"
+let g:vimtex_view_method = "zathura"
+
 "concealing
 setl conceallevel=2
 let g:tex_conceal="abdgm"
 
 "spell check
 setl spell
-
-"Setting digraph easier to input as <char1><BS><char2>
-setl digraph
 
 if empty(v:servername) && exists('*remote_startserver')
     call remote_startserver('VIM')
@@ -50,6 +50,7 @@ inoremap <buffer> <C-j> <Esc>:exec "normal f" . leavechar<CR>a
 iabbrev <buffer> coordinaten coördinaten
 iabbrev <buffer> coordinaat coördinaat
 iabbrev <buffer> potentiele potentiële
+iabbrev <buffer> guage gauge
 
 inoremap <buffer> ( ()<Esc>:let leavechar=")"<CR>i
 inoremap <buffer> { {}<Esc>:let leavechar="}"<CR>i

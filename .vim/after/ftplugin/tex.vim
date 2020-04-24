@@ -6,3 +6,4 @@ function! MyHandler(context)
   endif
   return 1
 endfunction
+ru ftplugin/common_digraphs.vim
