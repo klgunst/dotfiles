@@ -40,6 +40,8 @@ Plug 'ervandew/supertab'
 Plug 'morhetz/gruvbox'
 Plug 'haya14busa/vim-gtrans'
 Plug 'vim-syntastic/syntastic'
+Plug 'JuliaEditorSupport/julia-vim', {'for': 'julia'}
+Plug 'dense-analysis/ale', {'for': 'julia'}
 Plug 'junegunn/vim-emoji'
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
