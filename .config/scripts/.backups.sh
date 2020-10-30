@@ -21,6 +21,7 @@ Calculations/
 .Xauthority
 .lesshst
 .local
+*.h5
 EOF
     echo "Created $HOME/.exclude-backup.txt"
 fi

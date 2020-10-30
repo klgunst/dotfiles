@@ -9,3 +9,10 @@
 
 [credential "https://github.com"]
     username = klgunst
+[alias]
+	wdiff = diff --color-words --minimal
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

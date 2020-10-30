@@ -75,8 +75,7 @@ export VSC_DATA_VO_USER=/user/data/gent/gvo000/gvo00003/vsc41288
 export VSC_SCRATCH_VO_USER=/user/scratch/gent/gvo000/gvo00003/vsc41288
 export OMP_NUM_THREADS=4
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
-export LESS=' -R '
-export PYTHONPATH=$PYTHONPATH:/opt/pyscf:$HOME/Codes/banana:$HOME/Codes/cashew:$HOME/Codes/T3NS/python:$HOME/Codes/MFPS:$HOME/Codes/SecondQuantizationAlgebra:$HOME/Codes/Pi-nuts:$HOME/Codes/sloth
+export LESS=' -R ' export PYTHONPATH=$PYTHONPATH:$HOME/Codes/banana:$HOME/Codes/cashew:$HOME/Codes/MFPS:$HOME/Codes/SecondQuantizationAlgebra:$HOME/Codes/Pi-nuts:$HOME/Codes/sloth
 
 # change history size 
 export HISTSIZE=1000000
@@ -108,7 +107,7 @@ gpg-connect-agent updatestartuptty /bye &>/dev/null
 
 # MKL
 source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh intel64
-export LD_PRELOAD=$MKLROOT/lib/intel64/libmkl_def.so:$MKLROOT/lib/intel64/libmkl_sequential.so:$MKLROOT/lib/intel64/libmkl_core.so
+# export LD_PRELOAD=$MKLROOT/lib/intel64/libmkl_def.so:$MKLROOT/lib/intel64/libmkl_sequential.so:$MKLROOT/lib/intel64/libmkl_core.so
 export MANPATH=$MANPATH:/usr/share/man:/usr/local/share/man:$HOME/.local/share/man
 
 # For jax

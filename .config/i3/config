@@ -12,7 +12,7 @@ set $shutdown --no-startup-id ~/.config/scripts/shutdown.sh
 ## Gaps
 for_window [class="^.*"] border pixel 3
 gaps outer 0
-gaps inner 4
+gaps inner 12
 
 focus_follows_mouse no
 
@@ -120,10 +120,10 @@ bindsym $mod+Prior 			exec $prev
 bindsym XF86Reload			restart
 bindsym XF86Suspend			exec --no-startup-id ~/.config/scripts/lock.sh
 bindsym XF86Close			kill
-bindsym XF86MonBrightnessDown		exec --no-startup-id xbacklight -dec 5
-bindsym XF86MonBrightnessUp		exec --no-startup-id xbacklight -inc 5
-bindsym Shift+XF86MonBrightnessDown	exec --no-startup-id xbacklight -set 1
-bindsym Shift+XF86MonBrightnessUp	exec --no-startup-id xbacklight -set 100
+bindsym XF86MonBrightnessDown		exec --no-startup-id xbacklight - 5
+bindsym XF86MonBrightnessUp		exec --no-startup-id xbacklight + 5
+bindsym Shift+XF86MonBrightnessDown	exec --no-startup-id xbacklight = 1
+bindsym Shift+XF86MonBrightnessUp	exec --no-startup-id xbacklight = 100
 bindsym XF86Display 			exec --no-startup-id ~/.config/scripts/screendmenu.sh
 bindsym XF86Tools 			exec --no-startup-id synclientToggle TouchpadOff
 

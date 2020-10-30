@@ -14,25 +14,25 @@ export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye &>/dev/null
 
 # for gent hpc
-# outp=$(ssh hpc "qstat; module swap cluster/skitty &> /dev/null; qstat""" 2> /dev/null)
+outp=$(ssh hpc "qstat; module swap cluster/skitty &> /dev/null; qstat""" 2> /dev/null)
 
 # for Pauling
-outp=$(ssh pauling "qstat -a | grep '[0-9]* *kgunst'" 2> /dev/null)
-if [ $? -eq 255 ]; then
-    echo "Not connected"
-    echo "" > $tmpfil
-    exit 0
-fi
+#outp=$(ssh pauling "qstat -a | grep '[0-9]* *kgunst'" 2> /dev/null)
+#if [ $? -eq 255 ]; then
+#    echo "Not connected"
+#    echo "" > $tmpfil
+#    exit 0
+#fi
 
 # for gent hpc
-#outpform=$(echo "$outp" | sed '/Username\|--------/d' | awk '{print $5, $4, $6, $2}' | column -t)
+outpform=$(echo "$outp" | sed '/Username\|--------/d' | awk '{print $5, $4, $6, $2}' | column -t)
 # for Pauling
-if [ -z "$outp" ]
-then
-    outpform=""
-else
-    outpform=$(echo "$outp" | awk '{print $(NF-1), $(NF-2), $NF, $4}' | column -t)
-fi
+#if [ -z "$outp" ]
+#then
+#    outpform=""
+#else
+#    outpform=$(echo "$outp" | awk '{print $(NF-1), $(NF-2), $NF, $4}' | column -t)
+#fi
 echo -e "$outpform" > $tempfil
 nmbrQ=$(echo "$outpform" | awk '{print $1}' | grep Q | wc -l)
 nmbrR=$(echo "$outpform" | awk '{print $1}' | grep R | wc -l)

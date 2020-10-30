@@ -19,4 +19,8 @@
     <uri>http://icecast.vrtcdn.be/klaracontinuo-high.mp3</uri>
     <name>Klara Continuo</name>
   </Station>
+  <Station>
+      <uri>https://playerservices.streamtheworld.com/api/livestream-redirect/WILLY.mp3</uri>
+    <name>Radio Willy</name>
+  </Station>
 </Stations>

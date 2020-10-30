@@ -5,10 +5,9 @@ set text_flowed = yes
 
 # sidebar
 set sidebar_visible = yes
+set sidebar_short_path = yes
 set mail_check_stats = yes
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
-# How often to check for new mail (time in seconds).
-#set mail_check = 120
 
 
 set send_charset="us-ascii:utf-8"
