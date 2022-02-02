@@ -35,18 +35,19 @@ set splitright
 
 call plug#begin('$HOME/.vim/plugged')
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
 Plug 'abudden/taghighlight-automirror'
 Plug 'ervandew/supertab'
 Plug 'morhetz/gruvbox'
 Plug 'haya14busa/vim-gtrans'
-Plug 'vim-syntastic/syntastic'
-Plug 'JuliaEditorSupport/julia-vim', {'for': 'julia'}
-Plug 'dense-analysis/ale', {'for': 'julia'}
+"Plug 'ycm-core/YouCompleteMe'
+"Plug 'vim-syntastic/syntastic', {'for': ['python', 'c']}
+Plug 'JuliaEditorSupport/julia-vim', {'for': ['julia', 'markdown']}
 Plug 'junegunn/vim-emoji'
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 Plug 'lervag/vimtex', {'for': 'tex'}
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+Plug 'dense-analysis/ale'
 call plug#end()
 
 """ For vim-emoji
@@ -55,17 +56,17 @@ set completefunc=emoji#complete
 nnoremap <leader>fe :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<cr>
 
 "For Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ["flake8"]
-let g:syntastic_loc_list_height = 5
-let g:syntastic_c_compiler_options = "-Wall -Wpedantic -DMAX_SYMMETRIES=5 -fopenmp"
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_python_checkers = ["flake8"]
+"let g:syntastic_loc_list_height = 5
+"let g:syntastic_c_compiler_options = "-Wall -Wpedantic -fopenmp"
 
 nnoremap <leader>Eo :Errors<cr>
 nnoremap <leader>Ec :lclose<cr>
@@ -184,3 +185,9 @@ nnoremap <C-H> <C-W><C-H>
 
 "Running script
 nnoremap <leader>m :make<cr>
+
+"ALE
+let g:ale_linters = {'cpp' : ['clangd'], 'python' : ['flake8'], 'javascript' : ['eslint'], 'html': ['tidy']}
+let g:ale_fixers= {'cpp': ['clangtidy'], 'python' : ['autoimport', 'autoflake', 'yapf']}
+nmap <silent> <leader>k <Plug>(ale_previous_wrap)zv
+nmap <silent> <leader>j <Plug>(ale_next_wrap)zv

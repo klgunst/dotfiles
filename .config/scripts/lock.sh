@@ -28,17 +28,17 @@ then
 fi
 
 # Get Playing music
-playingid=$($HOME/.config/scripts/music_dbus.py isplaying)
+# playingid=$($HOME/.config/scripts/music_dbus.py isplaying)
 #Pause music
-$HOME/.config/scripts/music_dbus.py Pause
+# $HOME/.config/scripts/music_dbus.py Pause
 
 # muting all the rest
-sink=$($HOME/.config/scripts/volumecontrol.sh mute)
+# sink=$($HOME/.config/scripts/volumecontrol.sh mute)
 i3lock -n -u -e -i $shot
 
 # unmuting all the rest
-$HOME/.config/scripts/volumecontrol.sh mute $sink
+# $HOME/.config/scripts/volumecontrol.sh mute $sink
 
-if [ -n "$playingid" ]; then
-    $HOME/.config/scripts/music_dbus.py Play $playingid
-fi
+# if [ -n "$playingid" ]; then
+#     $HOME/.config/scripts/music_dbus.py Play $playingid
+# fi

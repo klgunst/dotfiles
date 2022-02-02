@@ -17,4 +17,4 @@ map J zoom out
 map i recolor
 map p print
 
-map <C-p> feedkeys ":exec toclipboard $FILE<Return>"
+map <C-p> feedkeys ":exec toclip $FILE<Return>"

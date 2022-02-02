@@ -75,7 +75,8 @@ export VSC_DATA_VO_USER=/user/data/gent/gvo000/gvo00003/vsc41288
 export VSC_SCRATCH_VO_USER=/user/scratch/gent/gvo000/gvo00003/vsc41288
 export OMP_NUM_THREADS=4
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
-export LESS=' -R ' export PYTHONPATH=$PYTHONPATH:$HOME/Codes/banana:$HOME/Codes/cashew:$HOME/Codes/MFPS:$HOME/Codes/SecondQuantizationAlgebra:$HOME/Codes/Pi-nuts:$HOME/Codes/sloth
+export LESS=' -R '
+export PATH=$PATH:/usr/local/bagel/bin:$HOME/qsimulate/software/devel/genesis-scripts/bin:$HOME/.local/bin
 
 # change history size 
 export HISTSIZE=1000000
@@ -106,12 +107,8 @@ export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye &>/dev/null
 
 # MKL
-source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh intel64
-# export LD_PRELOAD=$MKLROOT/lib/intel64/libmkl_def.so:$MKLROOT/lib/intel64/libmkl_sequential.so:$MKLROOT/lib/intel64/libmkl_core.so
+# source /opt/intel/oneapi/setvars.sh
 export MANPATH=$MANPATH:/usr/share/man:/usr/local/share/man:$HOME/.local/share/man
-
-# For jax
-export JAX_ENABLE_X64='True'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -128,3 +125,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+autoload -U +X bashcompinit && bashcompinit
+source '/home/kgunst/.local/lib/azure-cli/az.completion'

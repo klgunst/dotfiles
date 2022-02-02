@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WALLPAPERPATH="$HOME/Pictures/wallpapers"
+WALLPAPERPATH="$HOME/Documents/Pictures/wallpapers"
 DEFAULT="default"
 NOTE="$HOME/.note.txt"
 connected=$1

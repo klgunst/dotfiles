@@ -2,7 +2,7 @@
 
 ask_screen(){
     screen=$(tail -n 1 /tmp/screens)
-    echo $screen
+    echo "$screen"
     sed -i "/$screen/d" /tmp/screens
 }
 
@@ -11,27 +11,22 @@ ask_screen(){
 
 xrandr -q | grep " connected" | sed 's/ .*//' > /tmp/screens
 connected=$(wc -l /tmp/screens | sed 's/ .*//')
-if [ $connected -eq 1 ]
-then
+if [ "$connected" -eq 1 ]; then
     execute="xrandr --auto"
     primary=$(ask_screen)
-fi
-if [ $connected -eq 2 ]
-then
+elif [ "$connected" -eq 2 ]; then
     primary=$(ask_screen)
     secondary=$(ask_screen)
     position="left-of"
 
     execute="xrandr --output $primary --auto --primary --output $secondary --auto --$position $primary"
-fi
-if [ $connected -ge 3 ]
-then
+elif [ "$connected" -ge 3 ]; then
     primary=$(ask_screen)
     secondary=$(ask_screen)
     tertiary=$(ask_screen)
     execute="xrandr --output $primary --primary --auto --output $secondary --auto --right-of $primary --output $tertiary --auto --right-of $secondary"
 fi
 
-$execute
-$HOME/.config/scripts/showwallpapers.sh $connected $primary $secondary $tertiary
-$HOME/.config/scripts/.polybarlaunch.sh
+eval "$execute"
+"$HOME/.config/scripts/showwallpapers.sh" "$connected" "$primary" "$secondary" "$tertiary"
+"$HOME/.config/scripts/.polybarlaunch.sh"

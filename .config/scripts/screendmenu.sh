@@ -38,3 +38,5 @@ fi
 $execute
 $HOME/.config/scripts/showwallpapers.sh $connected $primary $secondary $tertiary
 $HOME/.config/scripts/.polybarlaunch.sh
+
+bash "$HOME/.config/scripts/xidlehook_script.bash"&!

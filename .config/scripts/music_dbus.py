@@ -5,8 +5,12 @@ from gi.repository import GLib
 bus = SessionBus()
 # first in this list is the default
 # Make class from this together with its idx?
-busnames = ["org.mpris.MediaPlayer2.Goodvibes", "org.mpris.MediaPlayer2.spotify"]
-bus_obj=[None, None]
+busnames = [
+    "org.mpris.MediaPlayer2.Goodvibes",
+    "org.mpris.MediaPlayer2.spotify"
+]
+bus_obj = [None, None]
+
 
 def multiplaying():
     flag = False
@@ -18,16 +22,23 @@ def multiplaying():
             flag = True
     return False
 
+
 def playing_obj():
     for el in bus_obj:
         if el is not None and el.PlaybackStatus == 'Playing':
             return el
     return None
 
+
 def bus_print(data):
     # Radio 1 spamt irrelevante info in xesam:title
     # KEXP geeft zelfs nooit song titel?
-    blacklist = ['Radio 1', 'Altijd Benieuwd', 'Radio 1 - Altijd Benieuwd', 'Studio Brussel']
+    blacklist = [
+        'Radio 1',
+        'Altijd Benieuwd',
+        'Radio 1 - Altijd Benieuwd',
+        'Studio Brussel'
+    ]
 
     try:
         metadata = data['Metadata']
@@ -49,17 +60,23 @@ def bus_print(data):
                     except KeyError:
                         pass
 
-                    print(metadata['xesam:title'] )
+                info = metadata['xesam:title']
+                info = info[:75] + ' ...' if len(info) > 80 else info
+                print(info)
             except KeyError:
                 print("Missing info")
     sys.stdout.flush()
 
+
 def bus_add(idx, name):
     bus_obj[idx] = bus.get(busnames[idx], "/org/mpris/MediaPlayer2")
-    bus_obj[idx].onPropertiesChanged=lambda InterfaceName,data,c:bus_print(data)
+    bus_obj[idx].onPropertiesChanged = \
+        lambda InterfaceName, data, c: bus_print(data)
+
 
 def bus_remove(idx):
     bus_obj[idx] = None
+
 
 def player_commands(arglist):
     assert not multiplaying()
@@ -82,10 +99,11 @@ def player_commands(arglist):
             'Previous': obj.Previous,
             }
 
-    try :
+    try:
         commands[arglist[0]]()
     except KeyError:
         raise ValueError('Invalid input')
+
 
 def start_player(idx):
     from subprocess import call, Popen
@@ -94,19 +112,26 @@ def start_player(idx):
     elif idx == 1:
         Popen(["spotify"])
 
+
 if __name__ == '__main__':
     # Finding bus for spotify and goodvibes
     try:
-        for idx,name in enumerate(busnames):
+        for idx, name in enumerate(busnames):
             bus_add(idx, name)
-    except:
+    except Exception:
         pass
 
     if sys.argv[1] == 'watch':
-        bus.watch_name(busnames[0], name_appeared=lambda name:bus_add(0, name),
-                name_vanished=lambda:bus_remove(0))
-        bus.watch_name(busnames[1], name_appeared=lambda name:bus_add(1, name),
-                name_vanished=lambda:bus_remove(1))
+        bus.watch_name(
+            busnames[0],
+            name_appeared=lambda name: bus_add(0, name),
+            name_vanished=lambda: bus_remove(0)
+        )
+        bus.watch_name(
+            busnames[1],
+            name_appeared=lambda name: bus_add(1, name),
+            name_vanished=lambda: bus_remove(1)
+        )
         GLib.MainLoop().run()
     elif sys.argv[1] == 'info':
         for el in bus_obj:
@@ -118,7 +143,7 @@ if __name__ == '__main__':
             objpl = playing_obj()
             if objpl is not None:
                 print(bus_obj.index(playing_obj()))
-    elif multiplaying(): 
+    elif multiplaying():
         # if cacophony pause irrelevant from command
         bus_obj[0].Pause()
         bus_obj[1].Pause()

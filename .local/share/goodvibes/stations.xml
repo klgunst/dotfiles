@@ -20,7 +20,8 @@
     <name>Klara Continuo</name>
   </Station>
   <Station>
-      <uri>https://playerservices.streamtheworld.com/api/livestream-redirect/WILLY.mp3</uri>
+    <uri>https://playerservices.streamtheworld.com/api/livestream-redirect/WILLY.mp3</uri>
     <name>Radio Willy</name>
+    <insecure>true</insecure>
   </Station>
 </Stations>

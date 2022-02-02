@@ -15,5 +15,10 @@ syntax include @Python syntax/python.vim
 syn region mdPython matchgroup=markdownCode start="^```python$" end="^\(```\|\.\.\.\)$" contains=@Python fold
 unlet! b:current_syntax
 
+"For julia in markdown
+syntax include @Julia syntax/julia.vim
+syn region mdJulia matchgroup=markdownCode start="^```julia$" end="^\(```\|\.\.\.\)$" contains=@Julia fold
+unlet! b:current_syntax
+
 let b:current_syntax = 'markdown'
 hi markdownItalic cterm=italic

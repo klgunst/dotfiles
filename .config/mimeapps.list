@@ -35,3 +35,5 @@ image/svg+xml=inkscape.desktop;
 text/x-python=libreoffice-writer.desktop;
 application/x-shellscript=libreoffice-writer.desktop;
 application/x-ica=receiver.desktop;
+application/x-executable=code-oss.desktop;
+application/x-not-regular-file=code-oss.desktop;

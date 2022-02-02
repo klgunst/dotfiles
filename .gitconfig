@@ -1,6 +1,6 @@
 [user]
 	name = Klaas Gunst
-	email = klaasgunst@hotmail.com
+	email = klaasgunst@gmail.com
 [core]
 	editor = vim
 
@@ -16,3 +16,9 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[pull]
+	rebase = false
+[cola]
+	spellcheck = false
+[init]
+	defaultBranch = main

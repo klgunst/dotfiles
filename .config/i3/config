@@ -11,8 +11,8 @@ set $shutdown --no-startup-id ~/.config/scripts/shutdown.sh
 
 ## Gaps
 for_window [class="^.*"] border pixel 3
-gaps outer 0
-gaps inner 12
+# gaps outer 0
+# gaps inner 12
 
 focus_follows_mouse no
 
@@ -25,6 +25,8 @@ exec --no-startup-id unclutter
 exec --no-startup-id xmodmap ~/.xmodmap
 #for making transparent
 exec --no-startup-id compton
+#Locker
+exec --no-startup-id ~/.config/scripts/xidlehook_script.sh
 
 # #---Audio and Music Definitions---# #
 set $inc --no-startup-id ~/.config/scripts/volumecontrol.sh +2%
@@ -55,16 +57,20 @@ bindsym $mod+x 			exec --no-startup-id ~/.config/scripts/lock.sh
 bindsym $mod+Shift+x 		exec $shutdown
 
 bindsym $mod+b			exec --no-startup-id $browser
-bindsym $mod+s 			exec --no-startup-id spotify
-bindsym $mod+n 			exec --no-startup-id $term -e $fmanager 
-bindsym $mod+Shift+n 		exec --no-startup-id $term_fwd $fmanager
+bindsym $mod+s 			exec --no-startup-id flatpak run com.spotify.Client
+bindsym $mod+z 			exec --no-startup-id flatpak run com.slack.Slack
+bindsym $mod+n 			exec --no-startup-id flatpak run md.obsidian.Obsidian
+bindsym $mod+p 			exec --no-startup-id flatpak run org.zotero.Zotero
 bindsym $mod+d 			exec --no-startup-id dmenu_run -fn 'inconsolata-LGC:size=20'
 bindsym $mod+m 			exec --no-startup-id $term ~/.config/scripts/neomutt.sh
 bindsym $mod+a 			exec --no-startup-id ~/.config/scripts/editnote.sh
+bindsym $mod+g 			exec --no-startup-id zathura /home/kgunst/.xapers/qsimulate/0000000003/GENESIS-1.6.0.pdf
 
 bindsym $mod+f			fullscreen toggle
 bindsym $mod+t 			split toggle
 bindsym $mod+v 			exec $term -e connectcluster 
+
+bindsym $mod+w 			layout toggle tabbed split
 
 # #---Arrow Keys---# #
 bindsym $mod+Left		focus left
@@ -86,14 +92,14 @@ bindsym $mod+Shift+k		move up
 bindsym $mod+Shift+l 	 	move right
 
 # #---Gaps--- # #
-bindsym $mod+i 			gaps inner current plus 4
-bindsym $Mod+Shift+i 		gaps inner current minus 4
-bindsym $Mod+Shift+Ctrl+i	gaps inner current set 0
-bindsym $mod+o 			gaps outer current plus 4
-bindsym $Mod+Shift+o 		gaps outer current minus 4
-bindsym $Mod+Shift+Ctrl+o	gaps outer current set 0
-
-bindsym $mod+Shift+t 		gaps outer current set 0; gaps inner current set 4
+# bindsym $mod+i 			gaps inner current plus 4
+# bindsym $Mod+Shift+i 		gaps inner current minus 4
+# bindsym $Mod+Shift+Ctrl+i	gaps inner current set 0
+# bindsym $mod+o 			gaps outer current plus 4
+# bindsym $Mod+Shift+o 		gaps outer current minus 4
+# bindsym $Mod+Shift+Ctrl+o	gaps outer current set 0
+# 
+# bindsym $mod+Shift+t 		gaps outer current set 0; gaps inner current set 4
 
 # Print screen takes a screenshot.
 # With shift, it takes one only of the given window.
@@ -138,10 +144,6 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
-
-# Workspace for paper:
-bindsym $mod+Shift+p workspace 10; exec $term -e otex paper
-bindsym $mod+Shift+d workspace 10; exec $term -e otex Thesis
 
 # Workspace for vim learning:
 bindsym $mod+Shift+v workspace 9; exec $term -e vim; exec evince /home/kgunst/Documents/library/books/4da44b8e2d87889cdf0f483fbbf45aaa-unknown/learnvimscriptthehardway.pdf.pdf

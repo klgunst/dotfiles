@@ -191,11 +191,11 @@ backend      : TkAgg
 ## The font.size property is the default font size for text, given in pts.
 ## 10 pt is the standard value.
 
-font.family        : STIX Two Text
+# font.family        : STIX Two Text
 # font.serif         : CMU Serif
 # font.sans-serif    : CMU Sans serif
 # font.cursive       : Zapf Chancery
-font.monospace     : CMU Typewriter Text
+# font.monospace     : CMU Typewriter Text
 
 #font.family         : sans-serif
 #font.style          : normal

@@ -12,13 +12,13 @@ fi
 
 while [ $(echo "$outp" | grep "ERR" &> /dev/null; echo $?) -eq 0 ]; do
     if [ $(echo "$outp" | grep "Card removed" &> /dev/null; echo $?) -eq 0 ]; then
-	pass work/UGent > /dev/null
+	pass PhD/UGent > /dev/null
 	if [ $? -eq 2 ]; then
 	    exit 1
 	fi
     fi
     if [ $(echo "$outp" | grep "No such device" &> /dev/null; echo $?) -eq 0 ]; then
-	pass work/UGent > /dev/null
+	pass PhD/UGent > /dev/null
 	if [ $? -eq 2 ]; then
 	    exit 1
 	fi

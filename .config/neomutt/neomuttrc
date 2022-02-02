@@ -12,7 +12,7 @@ set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 
 set send_charset="us-ascii:utf-8"
 
-set folder = "~/Mail"
+set folder = "~/Documents/Mail"
 set spoolfile = "+UGent/INBOX"
 
 # speedup folder switch
