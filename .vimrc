@@ -187,7 +187,29 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>m :make<cr>
 
 "ALE
-let g:ale_linters = {'cpp' : ['clangd'], 'python' : ['flake8'], 'javascript' : ['eslint'], 'html': ['tidy']}
-let g:ale_fixers= {'cpp': ['clangtidy'], 'python' : ['autoimport', 'autoflake', 'yapf']}
+let g:ale_default_navigation = 'tab'
+let g:ale_linters = {'fortran': ['language_server'], 'cpp' : ['clangd'], 'python' : ['pylsp', 'flake8'], 'javascript' : ['eslint'], 'html': ['tidy']}
+let g:ale_fixers= {'cpp': ['clangtidy'], 'python' : ['black'], 'json': ['jq']}
+let g:ale_python_pylsp_config = {
+   \ 'pylsp': {
+   \   'configurationSources': ['flake8'],
+   \   'plugins': {
+   \     'flake8': { 'enabled': v:true },
+   \     'black': { 'enabled': v:true },
+   \     'pylsp_mypy': { 'enabled': v:true, 'live_mode': v:true },
+   \     'pycodestyle': { 'enabled': v:false },
+   \     'pyflakes': { 'enabled': v:false },
+   \     'mccabe': { 'enabled': v:false },
+   \     },
+   \   }
+   \ }
+let g:ale_python_black_options = '-l 120'
+let g:ale_json_jq_options = '--indent 4:'
+
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)zv
 nmap <silent> <leader>j <Plug>(ale_next_wrap)zv
+nmap <silent> <leader>d <Plug>(ale_hover)
+nmap <silent> <leader>g <Plug>(ale_go_to_definition)
+nmap <silent> <leader>gt <Plug>(ale_go_to_definition_in_tab)
+nmap <silent> <leader>gs <Plug>(ale_go_to_definition_in_split)
+nmap <silent> <leader>gv <Plug>(ale_go_to_definition_in_vsplit)

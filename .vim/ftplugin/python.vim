@@ -9,6 +9,9 @@ setlocal encoding=utf-8
 setlocal makeprg=python3\ %
 setlocal errorformat^=%-G%f:%l:\ H5pyDeprecationWarning%.%#
 
+setlocal textwidth=120
+setlocal colorcolumn=120
+
 :match ExtraWhitespace /\s\+\%#\@<!$/
 :autocmd InsertLeave * redraw!
 
