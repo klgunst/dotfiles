@@ -64,7 +64,7 @@ bindsym $mod+p 			exec --no-startup-id flatpak run org.zotero.Zotero
 bindsym $mod+d 			exec --no-startup-id dmenu_run -fn 'inconsolata-LGC:size=20'
 bindsym $mod+m 			exec --no-startup-id $term ~/.config/scripts/neomutt.sh
 bindsym $mod+a 			exec --no-startup-id ~/.config/scripts/editnote.sh
-bindsym $mod+g 			exec --no-startup-id zathura /home/kgunst/.xapers/qsimulate/0000000003/GENESIS-1.6.0.pdf
+bindsym $mod+g 			exec --no-startup-id zathura /home/kgunst/.xapers/qsimulate/0000000003/GENESIS-1.7.1.pdf
 
 bindsym $mod+f			fullscreen toggle
 bindsym $mod+t 			split toggle

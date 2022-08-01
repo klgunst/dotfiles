@@ -1,8 +1,9 @@
 [user]
-	name = Klaas Gunst
-	email = klaasgunst@gmail.com
+    name = Klaas Gunst
+    email = klaasgunst@gmail.com
+    signingkey = 1EC4CE843790FDE42D1E721AE52892041A4A8BA9
 [core]
-	editor = vim
+    editor = vim
 
 [credential "https://github.ugent.be"]
     username = kgunst
@@ -10,15 +11,20 @@
 [credential "https://github.com"]
     username = klgunst
 [alias]
-	wdiff = diff --color-words --minimal
+    wdiff = diff --color-words --minimal
+    lol = log --oneline
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [pull]
-	rebase = false
+    rebase = false
 [cola]
-	spellcheck = false
+    spellcheck = false
 [init]
-	defaultBranch = main
+    defaultBranch = main
+[commit]
+    gpgsign = false
+[push]
+    autoSetupRemote = true
