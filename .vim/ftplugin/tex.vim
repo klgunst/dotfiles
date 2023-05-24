@@ -27,9 +27,6 @@ ounmap <buffer> <localleader>c
 nnoremap <buffer> <localleader>eq o\begin{equation}<cr>\end{equation}<esc>O
 nnoremap <buffer> <localleader>al o\begin{align}<cr>\end{align}<esc>O
 nnoremap <buffer> <localleader>fig o\begin{figure}[!ht]<cr>\centering<cr>\includegraphics{}<cr>\caption{}<cr>\end{figure}<esc>?includegra<cr>f{a
-nnoremap <buffer> <localleader>pc :Papis<cr>
-nnoremap <buffer> <localleader>pV :PapisView<cr>
-nnoremap <buffer> <localleader>pv :PapisInfo<cr>
 
 noremap <buffer> <localleader>ns /section\*\{0,1\}{<cr>
 noremap <buffer> <localleader>nS /\\section\*\{0,1\}{<cr>

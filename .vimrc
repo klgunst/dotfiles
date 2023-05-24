@@ -36,6 +36,7 @@ set splitright
 call plug#begin('$HOME/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'abudden/taghighlight-automirror'
 Plug 'ervandew/supertab'
 Plug 'morhetz/gruvbox'
@@ -48,6 +49,8 @@ Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 Plug 'lervag/vimtex', {'for': 'tex'}
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'dense-analysis/ale'
+Plug 'AndrewRadev/linediff.vim'
+Plug 'cp2k/vim-cp2k'
 call plug#end()
 
 """ For vim-emoji
@@ -213,3 +216,13 @@ nmap <silent> <leader>g <Plug>(ale_go_to_definition)
 nmap <silent> <leader>gt <Plug>(ale_go_to_definition_in_tab)
 nmap <silent> <leader>gs <Plug>(ale_go_to_definition_in_split)
 nmap <silent> <leader>gv <Plug>(ale_go_to_definition_in_vsplit)
+
+autocmd BufWinEnter <buffer> match Error /\s\+$/
+autocmd InsertEnter <buffer> match Error /\s\+\%#\@<!$/
+autocmd InsertLeave <buffer> match Error /\s\+$/
+autocmd BufWinLeave <buffer> call clearmatches()
+
+nnoremap <Leader>gy :.GBrowse!<CR>
+xnoremap <Leader>gy :'<'>GBrowse!<CR>
+nnoremap <Leader>go :.GBrowse<CR>
+xnoremap <Leader>go :'<'>GBrowse<CR>
